@@ -12,5 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Theme.MySplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logoapp</item>
+        <item name="postSplashScreenTheme">@style/Theme.ProyectoFinal</item>
+    </style>
+
 </resources>
