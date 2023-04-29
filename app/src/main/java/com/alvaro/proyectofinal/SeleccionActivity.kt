@@ -14,13 +14,14 @@ class SeleccionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(ActivitySeleccionBinding.inflate(layoutInflater).also { binding = it }.root)
+
         setSupportActionBar(binding.toolbar)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(setOf(
-
+                R.id.hangmanFragment
             ),
             binding.drawerLayout
         )

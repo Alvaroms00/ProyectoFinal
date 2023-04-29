@@ -30,14 +30,6 @@ class MainActivity : AppCompatActivity() {
         var usuarioGuardado = usuario.getString("usuario", "")
 
         if (usuarioGuardado != ""){
-            val connection = Database.getConnection()
-            val statement = connection?.prepareStatement("INSERT INTO usuarios(nombre, usuario, pass) VALUES (?,?,?)")
-            statement?.setString(1,R.id.introNombre.toString())
-            statement?.setString(2,R.id.introUser.toString())
-            statement?.setString(3,R.id.introPass.toString())
-            statement?.executeQuery()
-            connection?.close()
-
             val intent = Intent(this,SeleccionActivity::class.java)
             startActivity(intent)
         }else{
