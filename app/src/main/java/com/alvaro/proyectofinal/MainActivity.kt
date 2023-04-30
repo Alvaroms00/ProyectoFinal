@@ -9,10 +9,16 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.alvaro.proyectofinal.BaseDeDatos.Database
 import com.alvaro.proyectofinal.databinding.ActivityMainBinding
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.mysql.jdbc.PreparedStatement
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.lang.Exception
+import java.sql.DriverManager
+import java.sql.ResultSet
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -21,11 +27,19 @@ class MainActivity : AppCompatActivity() {
         val screenSplash = installSplashScreen()
         super.onCreate(savedInstanceState)
 
+        //Corrutina para la SplashScreen
         CoroutineScope(Dispatchers.IO).launch{
             delay(1000)
             screenSplash.setKeepOnScreenCondition{ false }
         }
 
+        //Evento para las analiticas de Google
+        val analytics = FirebaseAnalytics.getInstance(this)
+        val bundle = Bundle()
+        bundle.putString("mesage","Integración a FireBase completada")
+        analytics.logEvent("InitScreen", bundle )
+
+        //Creación del guardado de usuario e inicio de la aplicación
         val usuario = getSharedPreferences(getString(R.string.usuario), Context.MODE_PRIVATE)
         var usuarioGuardado = usuario.getString("usuario", "")
 
