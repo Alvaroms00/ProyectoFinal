@@ -7,18 +7,12 @@ import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.alvaro.proyectofinal.BaseDeDatos.Database
 import com.alvaro.proyectofinal.databinding.ActivityMainBinding
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.mysql.jdbc.PreparedStatement
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.lang.Exception
-import java.sql.DriverManager
-import java.sql.ResultSet
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -46,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         if (usuarioGuardado != ""){
             val intent = Intent(this,SeleccionActivity::class.java)
             startActivity(intent)
+            finish()
         }else{
             setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
             val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

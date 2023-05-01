@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.navigation.NavController
-import com.alvaro.proyectofinal.BaseDeDatos.Database
 import com.alvaro.proyectofinal.databinding.FragmentRegistroBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,18 +41,9 @@ class RegistroFragment : Fragment() {
             var usuario = this.activity?.getSharedPreferences(getString(R.string.usuario), Context.MODE_PRIVATE)
             usuario?.edit()?.putString("usuario",binding.introUser.text.toString())?.apply()
 
-            val connection = Database.getConnection()
-            val statement = connection?.prepareStatement("INSERT INTO usuarios (nombre, usuario, pass) VALUES (?,?,?)")
-            statement?.setString(1,binding.introNombre.text.toString())
-            statement?.setString(2,binding.introUser.text.toString())
-            statement?.setString(3,binding.introPass.text.toString())
-            statement?.executeUpdate()
-            connection?.close()
-
-
             val intent = Intent(activity,MainActivity::class.java)
             startActivity(intent)
+            onDestroy()
         }
     }
-
 }
