@@ -34,7 +34,7 @@ class InicioFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
 
-        binding.btnContinuar.setOnClickListener {
+        binding.btnContinuarInicio.setOnClickListener {
             navController.navigate(R.id.action_inicioFragment_to_presentacionFragment)
         }
     }

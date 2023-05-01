@@ -34,7 +34,7 @@ class PresentacionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
 
-        binding.btnContinuar.setOnClickListener{
+        binding.btncontinuarPres.setOnClickListener{
             navController.navigate(R.id.action_presentacionFragment_to_puntuacionFragment)
         }
     }

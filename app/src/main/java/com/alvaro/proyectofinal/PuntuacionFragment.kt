@@ -34,7 +34,7 @@ class PuntuacionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
 
-        binding.btnContinuar.setOnClickListener{
+        binding.btnContinuarPunt.setOnClickListener{
             navController.navigate(R.id.action_puntuacionFragment_to_registroFragment)
         }
     }
