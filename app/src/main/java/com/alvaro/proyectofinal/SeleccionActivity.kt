@@ -21,6 +21,7 @@ class SeleccionActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(setOf(
+                R.id.juegosFragment,
                 R.id.loginFragment
             ),
             binding.drawerLayout

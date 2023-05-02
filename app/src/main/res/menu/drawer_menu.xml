@@ -10,6 +10,7 @@
         android:id="@+id/ventanaAjustes"
         android:icon="@drawable/baseline_settings_24"
         android:title="Ajustes"/>
+
     <item
         android:id="@+id/cerrarSesion"
         android:icon="@drawable/baseline_logout_24"
