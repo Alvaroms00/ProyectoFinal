@@ -3,11 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_graph"
-    app:startDestination="@id/hangmanFragment">
+    app:startDestination="@id/juegosFragment">
 
     <fragment
-        android:id="@+id/hangmanFragment"
-        android:name="com.alvaro.proyectofinal.HangmanFragment"
-        android:label="Ahorado"
-        tools:layout="@layout/fragment_hangman" />
+        android:id="@+id/juegosFragment"
+        android:name="com.alvaro.proyectofinal.JuegosFragment"
+        android:label="Juegos Clasicos"
+        tools:layout="@layout/fragment_juegos" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.alvaro.proyectofinal.LoginFragment"
+        android:label="Iniciar Sesión"
+        tools:layout="@layout/fragment_login" />
 </navigation>
