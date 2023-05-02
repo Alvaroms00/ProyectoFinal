@@ -1,4 +1,4 @@
-package com.alvaro.proyectofinal
+package com.alvaro.proyectofinal.OnBoarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.FragmentPresentacionBinding
 
 // TODO: Rename parameter arguments, choose names that match

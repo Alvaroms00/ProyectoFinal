@@ -1,4 +1,4 @@
-package com.alvaro.proyectofinal
+package com.alvaro.proyectofinal.OnBoarding
 
 import android.app.AlertDialog
 import android.content.Context
@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.NavController
+import com.alvaro.proyectofinal.MainActivity
+import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.FragmentRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -51,7 +52,7 @@ class RegistroFragment : Fragment() {
                         showAlert()
                     }
                 }
-                val intent = Intent(activity,MainActivity::class.java)
+                val intent = Intent(activity, MainActivity::class.java)
                 startActivity(intent)
                 onDestroy()
             }
