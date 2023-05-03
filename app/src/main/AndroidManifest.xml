@@ -2,23 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Juegos Clasicos"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoFinal"
         tools:targetApi="31">
         <activity
             android:name=".Juegos.SnakeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Juego de la Serpiente"/>
         <activity
             android:name=".Juegos.TictactoeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="3 en Raya"/>
         <activity
             android:name=".Juegos.HangmanActivity"
             android:exported="false"
