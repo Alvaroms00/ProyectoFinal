@@ -11,9 +11,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavController
 import com.alvaro.proyectofinal.MainActivity
+import com.alvaro.proyectofinal.ProviderType
 import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.FragmentRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,11 +24,11 @@ import com.google.firebase.auth.FirebaseAuth
 class RegistroFragment : Fragment() {
     // TODO: Rename and change types of parameters
     lateinit var binding: FragmentRegistroBinding
-    lateinit var navController: NavController
+    lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        auth = Firebase.auth
     }
 
     override fun onCreateView(
@@ -48,17 +51,15 @@ class RegistroFragment : Fragment() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.introEmail.text.toString(),binding.introPass.text.toString()).addOnCompleteListener{
                     if (it.isSuccessful){
                         Toast.makeText(activity, "Registro Completo", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(activity,MainActivity::class.java)
+                        startActivity(intent)
                     }else{
                         showAlert()
                     }
                 }
-                val intent = Intent(activity, MainActivity::class.java)
-                startActivity(intent)
-                onDestroy()
             }
         }
     }
-
     private fun showAlert(){
         val builder = AlertDialog.Builder(activity)
         builder.setTitle("Error")

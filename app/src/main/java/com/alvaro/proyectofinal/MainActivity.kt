@@ -14,6 +14,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+enum class ProviderType{
+    BASIC
+}
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -31,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val analytics = FirebaseAnalytics.getInstance(this)
         val bundle = Bundle()
         bundle.putString("mesage","Integración a FireBase completada")
-        analytics.logEvent("InitScreen", bundle )
+        analytics.logEvent("InitScreen", bundle)
 
         //Creación del guardado de usuario e inicio de la aplicación
         val usuario = getSharedPreferences(getString(R.string.usuario), Context.MODE_PRIVATE)
@@ -40,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         if (usuarioGuardado != ""){
             val intent = Intent(this,SeleccionActivity::class.java)
             startActivity(intent)
-            finish()
         }else{
             setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
             val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
