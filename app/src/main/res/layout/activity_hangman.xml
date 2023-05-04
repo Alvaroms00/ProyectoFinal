@@ -1,9 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#252525"
+    android:orientation="vertical"
     tools:context=".Juegos.HangmanActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingTop="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imgSoporte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/soporte"
+            android:layout_marginBottom="40dp"/>
+
+        <ImageView
+            android:id="@+id/imgCabeza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/cabeza"
+            android:paddingStart="108dp"
+            android:paddingTop="23dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="40dp"/>
+        <ImageView
+            android:id="@+id/imgCuerpo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/cuerpo"
+            android:paddingStart="120dp"
+            android:paddingTop="53dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="40dp"/>
+
+        <ImageView
+            android:id="@+id/imgBrazoDerecho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/brazo_derecho"
+            android:paddingStart="123dp"
+            android:paddingTop="58dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="40dp"/>
+        <ImageView
+            android:id="@+id/imgBrazoIzquierdo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/brazo_izquierdo"
+            android:paddingStart="101dp"
+            android:paddingTop="58dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="40dp"/>
+        <ImageView
+            android:id="@+id/imgPiernaDerecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pierna_derecha"
+            android:paddingStart="123dp"
+            android:paddingTop="83dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="40dp"/>
+        <ImageView
+            android:id="@+id/imgPiernaIzquierda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pierna_izquierda"
+            android:paddingStart="101dp"
+            android:paddingTop="83dp"
+            android:visibility="invisible"
+            android:layout_marginBottom="40dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/palabra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:gravity="center"/>
+
+    <GridView
+        android:id="@+id/letras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:numColumns="7"
+        android:padding="5dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="5dp"/>
+
+</LinearLayout>
