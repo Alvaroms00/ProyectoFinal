@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="palabras">
+        <item>VOLCAR</item>
+        <item>BARRER</item>
+        <item>TAPA</item>
+        <item>CUNA</item>
+        <item>PALABRAS</item>
+        <item>CUADRUPEDO</item>
+        <item>ACTIVISTA</item>
+        <item>AGUACERO</item>
+        <item>PATAS</item>
+        <item>PLATA</item>
+        <item>VERDURA</item>
+        <item>ETIQUETA</item>
+        <item>FALDA</item>
+        <item>JARRA</item>
+        <item>DEFENSA</item>
+        <item>AZAR</item>
+        <item>CARRETERA</item>
+        <item>DESCENDIENTE</item>
+        <item>REGAZO</item>
+        <item>CIRUJANO</item>
+    </string-array>
+</resources>

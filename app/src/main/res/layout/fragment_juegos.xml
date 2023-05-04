@@ -12,34 +12,39 @@
         android:layout_width="123dp"
         android:layout_height="115dp"
         android:src="@drawable/hangman"
+        app:layout_constraintBottom_toTopOf="@+id/btnAhorcado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="46dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnAhorcado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jugar Ahorcado"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="188dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="123dp"
         android:layout_height="115dp"
         android:src="@drawable/tictactoe"
+        app:layout_constraintBottom_toTopOf="@+id/btnTicTacToe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="261dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAhorcado" />
 
     <Button
         android:id="@+id/btnTicTacToe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jugar 3 en Raya"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="403dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

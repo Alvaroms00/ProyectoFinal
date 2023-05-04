@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#252525"
     android:orientation="vertical"
-    tools:context=".Juegos.HangmanActivity">
+    tools:context=".Juegos.Hangman.HangmanActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
