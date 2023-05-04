@@ -26,7 +26,6 @@ class SeleccionActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.juegosFragment,
-            R.id.loginFragment
             ),
             binding.drawerLayout
         )
