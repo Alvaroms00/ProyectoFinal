@@ -1,6 +1,5 @@
 package com.alvaro.proyectofinal.Juegos.Hangman;
 
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
