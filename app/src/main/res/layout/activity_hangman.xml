@@ -94,10 +94,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
-        android:numColumns="7"
-        android:padding="5dp"
+        android:layout_marginTop="15dp"
+        android:numColumns="5"
+        android:padding="15dp"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="5dp"
-        android:horizontalSpacing="5dp"/>
+        android:verticalSpacing="15dp"
+        android:horizontalSpacing="15dp"/>
 
 </LinearLayout>
