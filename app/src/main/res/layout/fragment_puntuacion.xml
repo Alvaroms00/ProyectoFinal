@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
-        android:text="Continuar"
+        android:text="@string/btnContinuar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,9 +22,9 @@
 
     <TextView
         android:id="@+id/txtPuntuacion"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Compite contra otros jugadores y tus amigos para conseguir ser \n ¡El primero de todos!"
+        android:text="@string/txtPuntuacion"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/btnContinuarPunt"

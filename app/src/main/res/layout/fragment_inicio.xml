@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
-        android:text="Continuar"
+        android:text="@string/btnContinuar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,9 +22,9 @@
 
     <TextView
         android:id="@+id/txtSaludo"
-        android:layout_width="352dp"
-        android:layout_height="179dp"
-        android:text="¡Bienvenido!\n Entra y disfruta de los distintos juegos que ofrecemos."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txtInicio"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/btnContinuarInicio"

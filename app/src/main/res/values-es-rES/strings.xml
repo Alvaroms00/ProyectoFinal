@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Juegos Clasicos</string>
+    <string name="usuario">usuario</string>
+    <string name="title_activity_hangman">Ahorcado</string>
+    <string name="btnContinuar">Continuar</string>
+    <string name="txtTicTacToe">3 En Raya</string>
+    <string name="txtAhorcado">Juego del Ahorcado</string>
+    <string name="ahorcado">Ahorcado</string>
+    <string name="btnRegistrar">Registrarse</string>
+    <string name="introNombre">Nombre</string>
+    <string name="introEmail">Email</string>
+    <string name="introPass">Contraseña</string>
+
+</resources>

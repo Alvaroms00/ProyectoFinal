@@ -11,7 +11,7 @@
         android:id="@+id/btncontinuarPres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continuar"
+        android:text="@string/btnContinuar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,10 +22,10 @@
 
     <TextView
         android:id="@+id/txtPresentacion"
-        android:layout_width="357dp"
-        android:layout_height="177dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="300dp"
-        android:text="Disponemos de varios minijuegos con los que podras pasar el rato"
+        android:text="@string/txtPresentacion"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@id/btncontinuarPres"
@@ -42,7 +42,8 @@
         app:layout_constraintEnd_toStartOf="@+id/imgTicTacToe"
         app:layout_constraintHorizontal_bias="0.243"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/ahorcado" />
 
     <ImageView
         android:id="@+id/imgTicTacToe"
@@ -52,13 +53,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgAhorcado"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/txtTicTacToe" />
 
     <TextView
         android:id="@+id/txtAhorcado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Juego del Ahorcado"
+        android:text="@string/txtAhorcado"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,7 +74,7 @@
         android:id="@+id/txt3EnRaya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3 En Raya"
+        android:text="@string/txtTicTacToe"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,7 +1,19 @@
 <resources>
-    <string name="app_name">ProyectoFinal</string>
+    <string name="app_name">Classic Games</string>
     <string name="usuario">usuario</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_hangman">HangmanActivity</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_hangman">Hangman</string>
+    <string name="btnContinuar">Continuar</string>
+    <string name="txtInicio">¡Bienvenido!\n Entra y disfruta de los distintos juegos que ofrecemos.</string>
+    <string name="txtTicTacToe">3 En Raya</string>
+    <string name="txtAhorcado">Hangman Game</string>
+    <string name="ahorcado">Hangman</string>
+    <string name="txtPresentacion">Disponemos de varios minijuegos con los que podras pasar el rato</string>
+    <string name="txtPuntuacion">Compite contra otros jugadores y tus amigos para conseguir ser \n ¡El primero de todos!</string>
+    <string name="btnRegistrar">Sign Up</string>
+    <string name="txtRegistro">Registrate\ny\n¡comienza a jugar!</string>
+    <string name="introNombre">Name</string>
+    <string name="introEmail">Email</string>
+    <string name="introPass">Password</string>
 </resources>
