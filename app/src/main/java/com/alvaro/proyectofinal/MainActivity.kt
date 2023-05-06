@@ -13,6 +13,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
+enum class ProviderType{
+    BASIC
+}
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -34,11 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         //Creación del guardado de usuario e inicio de la aplicación
         val usuario = getSharedPreferences(getString(R.string.usuario), Context.MODE_PRIVATE)
-        var usuarioGuardado = usuario.getString("usuario", "")
+        val usuarioGuardado = usuario.getString("usuario", "")
 
         if (usuarioGuardado != ""){
             val intent = Intent(this,SeleccionActivity::class.java)
             startActivity(intent)
+            finish()
         }else{
             setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
             val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

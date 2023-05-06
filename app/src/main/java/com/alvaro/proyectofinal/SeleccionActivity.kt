@@ -10,6 +10,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.onNavDestinationSelected
 import com.alvaro.proyectofinal.databinding.ActivitySeleccionBinding
 
+
 class SeleccionActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySeleccionBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -26,6 +27,7 @@ class SeleccionActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.juegosFragment,
+            R.id.loginFragment
             ),
             binding.drawerLayout
         )

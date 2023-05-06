@@ -10,4 +10,9 @@
         android:name="com.alvaro.proyectofinal.JuegosFragment"
         android:label="Juegos Clasicos"
         tools:layout="@layout/fragment_juegos" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.alvaro.proyectofinal.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>
