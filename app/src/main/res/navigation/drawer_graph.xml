@@ -10,9 +10,20 @@
         android:name="com.alvaro.proyectofinal.JuegosFragment"
         android:label="Juegos Clasicos"
         tools:layout="@layout/fragment_juegos" />
+
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.alvaro.proyectofinal.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        android:id="@+id/cerrarsesionFragment"
+        android:name="com.alvaro.proyectofinal.CerrarsesionFragment"
+        android:label="fragment_cerrarsesion"
+        tools:layout="@layout/fragment_cerrarsesion" />
+    <fragment
+        android:id="@+id/rankingFragment"
+        android:name="com.alvaro.proyectofinal.RankingFragment"
+        android:label="fragment_ranking"
+        tools:layout="@layout/fragment_ranking" />
+    <fragment
+        android:id="@+id/ajustesFragment"
+        android:name="com.alvaro.proyectofinal.AjustesFragment"
+        android:label="fragment_ajustes"
+        tools:layout="@layout/fragment_ajustes" />
 </navigation>

@@ -2,17 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuPrincipal"
+        android:id="@+id/juegosFragment"
         android:icon="@drawable/baseline_home_24"
         android:title="Menú Principal"/>
 
     <item
-        android:id="@+id/ventanaAjustes"
+        android:id="@+id/rankingFragment"
+        android:icon="@drawable/puntuacion"
+        android:title="Puntuación"/>
+
+    <item
+        android:id="@+id/ajustesFragment"
         android:icon="@drawable/baseline_settings_24"
         android:title="Ajustes"/>
 
     <item
-        android:id="@+id/cerrarSesion"
+        android:id="@+id/cerrarsesionFragment"
         android:icon="@drawable/baseline_logout_24"
         android:title="Cerrar Sesión"/>
 </menu>
