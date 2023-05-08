@@ -38,7 +38,10 @@ class RegistroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnRegistro.setOnClickListener{
+        binding.introPass.setOnClickListener {
+            binding.txtPass.visibility = View.VISIBLE
+        }
+        binding.btnRegistro.setOnClickListener {
             if (binding.introEmail.text.isNotEmpty() && binding.introPass.text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.introEmail.text.toString(),binding.introPass.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){

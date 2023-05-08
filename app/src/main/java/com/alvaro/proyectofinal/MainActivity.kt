@@ -1,6 +1,7 @@
 package com.alvaro.proyectofinal
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -29,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         var usuarioGuardado = usuario.getString("usuario", "")
 
         if (usuarioGuardado != ""){
+            val intent = Intent(this,SeleccionActivity::class.java)
+            startActivity(intent)
+            finish()
 
         }else{
             setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)

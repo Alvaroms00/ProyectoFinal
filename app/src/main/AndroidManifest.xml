@@ -21,11 +21,6 @@
             android:exported="false"
             android:label="3 en Raya" />
         <activity
-            android:name=".Juegos.Hangman.HangmanActivity"
-            android:exported="false"
-            android:label="Juego del Ahorcado"
-            android:theme="@style/Theme.ProyectoFinal" />
-        <activity
             android:name=".SeleccionActivity"
             android:exported="false" />
         <activity
