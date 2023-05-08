@@ -13,11 +13,7 @@
         android:theme="@style/Theme.ProyectoFinal"
         tools:targetApi="31">
         <activity
-            android:name=".Juegos.SnakeActivity"
-            android:exported="false"
-            android:label="Juego de la Serpiente" />
-        <activity
-            android:name=".Juegos.TictactoeActivity"
+            android:name=".Juegos.TresEnRaya.TictactoeActivity"
             android:exported="false"
             android:label="3 en Raya" />
         <activity
