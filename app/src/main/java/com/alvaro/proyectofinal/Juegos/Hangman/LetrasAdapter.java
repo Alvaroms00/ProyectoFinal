@@ -11,8 +11,8 @@ import com.alvaro.proyectofinal.R;
 
 public class LetrasAdapter extends BaseAdapter {
 
-    private String[] letras;
-    private LayoutInflater letrasLayout;
+    private final String[] letras;
+    private final LayoutInflater letrasLayout;
 
     public LetrasAdapter(Context context){
         letras = new String[26];

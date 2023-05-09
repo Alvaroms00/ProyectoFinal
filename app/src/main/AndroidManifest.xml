@@ -17,6 +17,10 @@
             android:exported="false"
             android:label="3 en Raya" />
         <activity
+            android:name=".Juegos.Hangman.HangmanActivity"
+            android:exported="false"
+            android:label="Ahorcado"/>
+        <activity
             android:name=".SeleccionActivity"
             android:exported="false" />
         <activity

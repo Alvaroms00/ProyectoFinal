@@ -1,7 +1,6 @@
 package com.alvaro.proyectofinal.Juegos.Hangman;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -29,7 +28,7 @@ public class HangmanActivity extends AppCompatActivity {
     private int numCorrecto;
     private int numCaracter;
     private ImageView[] partes;
-    private int partesSize = 6;
+    private final int partesSize = 6;
     private int parteAnterior;
 
     @Override
@@ -105,18 +104,8 @@ public class HangmanActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Has Ganado");
                 builder.setMessage("Has acertado la palabra\n\nLa respuesta era:\n" + palabraAnterior);
-                builder.setPositiveButton("Jugar de nuevo", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        HangmanActivity.this.juego();
-                    }
-                });
-                builder.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
+                builder.setPositiveButton("Jugar de nuevo", (dialog, which) -> HangmanActivity.this.juego());
+                builder.setNegativeButton("Salir", (dialog, which) -> finish());
                 builder.show();
             }
         } else if (parteAnterior<partesSize) {
@@ -127,18 +116,8 @@ public class HangmanActivity extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Has Perdido");
             builder.setMessage("No has acertado la palabra\n\nLa palabra era:\n" + palabraAnterior);
-            builder.setPositiveButton("Jugar de nuevo", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    HangmanActivity.this.juego();
-                }
-            });
-            builder.setNegativeButton("Salir", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    finish();
-                }
-            });
+            builder.setPositiveButton("Jugar de nuevo", (dialogInterface, i) -> HangmanActivity.this.juego());
+            builder.setNegativeButton("Salir", (dialogInterface, i) -> finish());
             builder.show();
         }
     }
