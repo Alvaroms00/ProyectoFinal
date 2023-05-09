@@ -1,6 +1,7 @@
 package com.alvaro.proyectofinal.Juegos.TresEnRaya
 
 import android.app.AlertDialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -63,11 +64,24 @@ class TictactoeActivity : AppCompatActivity() {
                 textoVictoria!!.visibility = View.VISIBLE
                 textoVictoria!!.setTextColor(Color.GREEN)
                 textoVictoria!!.text = "Has ganado!!!"
+
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Has Ganado")
+                builder.setMessage("Has derrotado a la maquina")
+                builder.setPositiveButton("Jugar de nuevo", null)
+                builder.setNegativeButton("Salir") { _: DialogInterface?, _: Int -> finish() }
+
             } else {
                 textoVictoria!!.text = "Has perdido"
                 textoVictoria!!.setTextColor(Color.RED)
                 textoVictoria!!.visibility = View.VISIBLE
                 fichaVictoria = R.drawable.circulovictoria
+
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Has Perdido")
+                builder.setMessage("Has sido derrotado por la maquina")
+                builder.setPositiveButton("Jugar de nuevo", null)
+                builder.setNegativeButton("Salir") { _: DialogInterface?, _: Int -> finish() }
             }
             for (j in posGanadora) {
                 val boton = findViewById<Button>(botones[j])
@@ -76,6 +90,12 @@ class TictactoeActivity : AppCompatActivity() {
         } else if (estado == 2) {
             textoVictoria!!.text = "Has empatado"
             textoVictoria!!.visibility = View.VISIBLE
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Empate")
+            builder.setMessage("Has empatado con la maquina")
+            builder.setPositiveButton("Jugar de nuevo", null)
+            builder.setNegativeButton("Salir") { _: DialogInterface?, _: Int -> finish() }
         }
     }
 
