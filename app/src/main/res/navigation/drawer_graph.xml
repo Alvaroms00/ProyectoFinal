@@ -14,16 +14,16 @@
     <fragment
         android:id="@+id/cerrarsesionFragment"
         android:name="com.alvaro.proyectofinal.Menus.CerrarsesionFragment"
-        android:label="fragment_cerrarsesion"
+        android:label="Información de la cuenta"
         tools:layout="@layout/fragment_cerrarsesion" />
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.alvaro.proyectofinal.Menus.RankingFragment"
-        android:label="fragment_ranking"
+        android:label="Ranking"
         tools:layout="@layout/fragment_ranking" />
     <fragment
         android:id="@+id/ajustesFragment"
         android:name="com.alvaro.proyectofinal.Menus.AjustesFragment"
-        android:label="fragment_ajustes"
+        android:label="Ajustes"
         tools:layout="@layout/fragment_ajustes" />
 </navigation>

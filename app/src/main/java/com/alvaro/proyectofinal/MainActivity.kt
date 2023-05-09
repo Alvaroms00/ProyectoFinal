@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,SeleccionActivity::class.java)
             startActivity(intent)
             finish()
-
         }else{
             setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
             val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

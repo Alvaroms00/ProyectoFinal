@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/inicioFragment"
         android:name="com.alvaro.proyectofinal.OnBoarding.InicioFragment"
-        android:label="fragment_inicio"
         tools:layout="@layout/fragment_inicio" >
         <action
             android:id="@+id/action_inicioFragment_to_presentacionFragment"
@@ -21,7 +20,6 @@
     <fragment
         android:id="@+id/presentacionFragment"
         android:name="com.alvaro.proyectofinal.OnBoarding.PresentacionFragment"
-        android:label="fragment_presentacion"
         tools:layout="@layout/fragment_presentacion" >
         <action
             android:id="@+id/action_presentacionFragment_to_puntuacionFragment"
@@ -34,7 +32,6 @@
     <fragment
         android:id="@+id/puntuacionFragment"
         android:name="com.alvaro.proyectofinal.OnBoarding.PuntuacionFragment"
-        android:label="fragment_puntuacion"
         tools:layout="@layout/fragment_puntuacion" >
         <action
             android:id="@+id/action_puntuacionFragment_to_registroFragment"
@@ -47,6 +44,5 @@
     <fragment
         android:id="@+id/registroFragment"
         android:name="com.alvaro.proyectofinal.OnBoarding.RegistroFragment"
-        android:label="fragment_registro"
         tools:layout="@layout/fragment_registro" />
 </navigation>
