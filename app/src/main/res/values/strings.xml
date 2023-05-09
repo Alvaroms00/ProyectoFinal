@@ -15,6 +15,7 @@
     <string name="introEmail">Email</string>
     <string name="introPass">Password</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="txtPass">Mínimo 8 caracteres</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="txtImgBoton">Button</string>
+    <string name="txtPass">Minimum of 8 characters</string>
 </resources>

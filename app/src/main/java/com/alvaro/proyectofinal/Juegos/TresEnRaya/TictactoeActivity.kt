@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.alvaro.proyectofinal.R
@@ -70,6 +71,8 @@ class TictactoeActivity : AppCompatActivity() {
                 builder.setMessage("Has derrotado a la maquina")
                 builder.setPositiveButton("Jugar de nuevo", null)
                 builder.setNegativeButton("Salir") { _: DialogInterface?, _: Int -> finish() }
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
 
             } else {
                 textoVictoria!!.text = "Has perdido"
@@ -82,9 +85,11 @@ class TictactoeActivity : AppCompatActivity() {
                 builder.setMessage("Has sido derrotado por la maquina")
                 builder.setPositiveButton("Jugar de nuevo", null)
                 builder.setNegativeButton("Salir") { _: DialogInterface?, _: Int -> finish() }
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
             }
             for (j in posGanadora) {
-                val boton = findViewById<Button>(botones[j])
+                val boton = findViewById<ImageButton>(botones[j])
                 boton.setBackgroundResource(fichaVictoria)
             }
         } else if (estado == 2) {
@@ -96,6 +101,8 @@ class TictactoeActivity : AppCompatActivity() {
             builder.setMessage("Has empatado con la maquina")
             builder.setPositiveButton("Jugar de nuevo", null)
             builder.setNegativeButton("Salir") { _: DialogInterface?, _: Int -> finish() }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
     }
 
@@ -105,7 +112,7 @@ class TictactoeActivity : AppCompatActivity() {
             while (tablero[posicion] != 0) {
                 posicion = random.nextInt(tablero.size)
             }
-            val boton = findViewById<Button>(botones[posicion])
+            val boton = findViewById<ImageButton>(botones[posicion])
             boton.setBackgroundResource(R.drawable.circulo)
             tablero[posicion] = -1
     }

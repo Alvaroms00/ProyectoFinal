@@ -14,6 +14,8 @@
     <string name="txtInicio">¡Bienvenido!\n Entra y disfruta de los distintos juegos que ofrecemos.</string>
     <string name="txtPresentacion">Disponemos de varios minijuegos con los que podras pasar el rato</string>
     <string name="txtPuntuacion">Compite contra otros jugadores y tus amigos para conseguir ser \n ¡El primero de todos!</string>
+    <string name="txtPass">Minimo 8 caracteres</string>
+    <string name="txtImgBoton">Boton</string>
 
 
 </resources>
