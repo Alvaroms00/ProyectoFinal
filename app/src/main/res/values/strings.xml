@@ -3,12 +3,12 @@
     <string name="usuario" translatable="false">usuario</string>
     <string name="title_activity_hangman">Hangman</string>
     <string name="btnContinuar">Continue</string>
-    <string name="txtInicio">¡Bienvenido!\n Entra y disfruta de los distintos juegos que ofrecemos.</string>
+    <string name="txtInicio">Welcome!,\ncome in and enjoy the different games we offer.</string>
     <string name="txtTicTacToe">3 En Raya</string>
     <string name="txtAhorcado">Hangman Game</string>
     <string name="ahorcado">Hangman</string>
-    <string name="txtPresentacion">Disponemos de varios minijuegos con los que podras pasar el rato</string>
-    <string name="txtPuntuacion">Compite contra otros jugadores y tus amigos para conseguir ser \n ¡El primero de todos!</string>
+    <string name="txtPresentacion">We have several mini-games to pass the time with.</string>
+    <string name="txtPuntuacion">Compete against other players and your friends to become the \nfirst of all!</string>
     <string name="btnRegistrar">Sign Up</string>
     <string name="txtRegistro">Sign Up\n and \n ¡Start playing!</string>
     <string name="introNombre">Name</string>
