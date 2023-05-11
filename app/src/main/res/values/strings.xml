@@ -20,4 +20,7 @@
     <string name="txtPass">Minimum of 8 characters</string>
     <string name="Idioma1">English</string>
     <string name="Idioma2">Spanish</string>
+    <string name="celda">Cell</string>
+    <string name="cuenta">Account</string>
+    <string name="btnJugar">Jugar</string>
 </resources>
