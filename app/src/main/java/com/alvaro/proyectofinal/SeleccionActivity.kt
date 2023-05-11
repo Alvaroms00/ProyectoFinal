@@ -18,8 +18,6 @@ class SeleccionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(ActivitySeleccionBinding.inflate(layoutInflater).also { binding = it }.root)
-
-        setTitle("Juegos Clasicos")
         setSupportActionBar(binding.toolbar)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -28,17 +26,13 @@ class SeleccionActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.juegosFragment,
             R.id.rankingFragment,
-            R.id.ajustesFragment,
-            R.id.cerrarsesionFragment
+            R.id.cerrarsesionFragment,
+            R.id.ajustesFragment
             ),
             binding.drawerLayout
         )
 
         NavigationUI.setupWithNavController(binding.navView, navController)
         NavigationUI.setupWithNavController(binding.toolbar,navController,appBarConfiguration)
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController(R.id.drawer_graph)
-        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 }

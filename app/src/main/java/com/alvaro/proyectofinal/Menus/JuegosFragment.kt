@@ -1,13 +1,13 @@
 package com.alvaro.proyectofinal.Menus
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.alvaro.proyectofinal.Juegos.Hangman.HangmanActivity
-import com.alvaro.proyectofinal.Juegos.TresEnRaya.TictactoeActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.alvaro.proyectofinal.HangmanFragment
+import com.alvaro.proyectofinal.TictactoeFragment
 import com.alvaro.proyectofinal.databinding.FragmentJuegosBinding
 
 class JuegosFragment : Fragment() {
@@ -30,14 +30,17 @@ class JuegosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnAhorcado.setOnClickListener{
-            val intent = Intent(activity,HangmanActivity::class.java)
-            startActivity(intent)
-        }
+        binding.viewPager.adapter = PagerAdapter(this)
+    }
+    class PagerAdapter(fragment: Fragment): FragmentStateAdapter(fragment){
+        override fun getItemCount(): Int = 2
 
-        binding.btnTicTacToe.setOnClickListener {
-            val intent = Intent(activity, TictactoeActivity::class.java)
-            startActivity(intent)
+        override fun createFragment(position: Int): Fragment {
+            return when(position){
+                0-> HangmanFragment()
+                1 -> TictactoeFragment()
+                else -> HangmanFragment()
+            }
         }
     }
 
