@@ -7,130 +7,146 @@
     android:onClick="ponerFicha"
     tools:context=".Juegos.TresEnRaya.TictactoeActivity">
 
-    <ImageButton
-        android:id="@+id/boton7"
+    <ImageView
+        android:id="@+id/celda_1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
+        app:layout_constraintBottom_toTopOf="@id/celda_5"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toStartOf="@id/celda_5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/celda_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
+        app:layout_constraintBottom_toTopOf="@+id/celda_5"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="@+id/celda_5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/celda_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
+        app:layout_constraintBottom_toTopOf="@id/celda_5"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toEndOf="@+id/celda_5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/celda_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
+        app:layout_constraintBottom_toBottomOf="@+id/celda_5"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toStartOf="@+id/celda_5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/celda_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toStartOf="@+id/boton8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <ImageButton
-        android:id="@+id/boton8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toStartOf="@+id/boton9"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/boton7"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <ImageButton
-        android:id="@+id/boton9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/boton8"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <ImageButton
-        android:id="@+id/boton4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
-        app:layout_constraintBottom_toTopOf="@+id/boton7"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toStartOf="@+id/boton5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <ImageButton
-        android:id="@+id/boton5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
-        app:layout_constraintBottom_toTopOf="@+id/boton8"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toStartOf="@+id/boton6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/boton4"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <ImageButton
-        android:id="@+id/boton6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
-        app:layout_constraintBottom_toTopOf="@+id/boton9"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/boton5"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <ImageButton
-        android:id="@+id/boton1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
-        app:layout_constraintBottom_toTopOf="@+id/boton4"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toStartOf="@+id/boton2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <ImageButton
-        android:id="@+id/boton2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
-        app:layout_constraintBottom_toTopOf="@+id/boton5"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toStartOf="@+id/boton3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/boton1"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <ImageButton
-        android:id="@+id/boton3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ACACAC"
-        android:onClick="ponerFicha"
-        app:layout_constraintBottom_toTopOf="@+id/boton6"
-        app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/boton2"
-        android:contentDescription="@string/txtImgBoton" />
-
-    <TextView
-        android:id="@+id/txtVictoria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/boton2"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/celda_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
+        app:layout_constraintBottom_toBottomOf="@+id/celda_5"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toEndOf="@+id/celda_5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/celda_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toStartOf="@+id/celda_5"
+        app:layout_constraintTop_toBottomOf="@+id/celda_5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/celda_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="@+id/celda_5"
+        app:layout_constraintTop_toBottomOf="@+id/celda_5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/celda_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/celda"
+        android:scaleType="fitXY"
+        android:src="@drawable/circulo"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toEndOf="@id/celda_5"
+        app:layout_constraintTop_toBottomOf="@id/celda_5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <!--Lineas divisorias-->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/celda_5"
+        app:layout_constraintEnd_toEndOf="@id/celda_3"
+        app:layout_constraintStart_toStartOf="@id/celda_1" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/celda_3"
+        app:layout_constraintStart_toStartOf="@id/celda_1"
+        app:layout_constraintTop_toBottomOf="@id/celda_5" />
+
+    <FrameLayout
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/celda_9"
+        app:layout_constraintStart_toStartOf="@id/celda_5"
+        app:layout_constraintTop_toTopOf="@id/celda_3" />
+
+    <FrameLayout
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/celda_9"
+        app:layout_constraintStart_toEndOf="@id/celda_5"
+        app:layout_constraintTop_toTopOf="@id/celda_3"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
