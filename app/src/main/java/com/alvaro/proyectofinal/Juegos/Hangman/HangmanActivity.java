@@ -102,6 +102,7 @@ public class HangmanActivity extends AppCompatActivity {
             if (numCorrecto == numCaracter){
                 deshabilitarBoton();
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.drawable.victoria);
                 builder.setTitle("Has Ganado");
                 builder.setMessage("Has acertado la palabra\n\nLa respuesta era:\n" + palabraAnterior);
                 builder.setPositiveButton("Jugar de nuevo", (dialog, which) -> HangmanActivity.this.juego());
@@ -114,6 +115,7 @@ public class HangmanActivity extends AppCompatActivity {
         }else{
             deshabilitarBoton();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setIcon(R.drawable.derrota);
             builder.setTitle("Has Perdido");
             builder.setMessage("No has acertado la palabra\n\nLa palabra era:\n" + palabraAnterior);
             builder.setPositiveButton("Jugar de nuevo", (dialogInterface, i) -> HangmanActivity.this.juego());
