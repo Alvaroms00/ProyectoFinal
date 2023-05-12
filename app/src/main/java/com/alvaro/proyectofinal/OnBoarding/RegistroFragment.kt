@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.alvaro.proyectofinal.MainActivity
+import com.alvaro.proyectofinal.Menus.ProviderType
 import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.FragmentRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -20,9 +21,8 @@ import com.google.firebase.auth.FirebaseAuth
 class RegistroFragment : Fragment() {
     // TODO: Rename and change types of parameters
     lateinit var binding: FragmentRegistroBinding
-    enum class ProviderType{
-        BASIC
-    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

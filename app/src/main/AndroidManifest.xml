@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,17 +14,20 @@
         android:theme="@style/Theme.ProyectoFinal"
         tools:targetApi="31">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".Juegos.TresEnRaya.TictactoeActivity"
             android:exported="false"
             android:label="3 en Raya" />
         <activity
             android:name=".Juegos.Hangman.HangmanActivity"
             android:exported="false"
-            android:label="Ahorcado"/>
+            android:label="Ahorcado" />
         <activity
             android:name=".SeleccionActivity"
             android:exported="false"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
