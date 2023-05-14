@@ -22,6 +22,11 @@
     <string name="cuenta">Cuenta</string>
     <string name="btnJugar">Jugar</string>
     <string name="btnGoogle">Registrarse con Google</string>
+    <string name="EmailIncorrecto">Email incorrecto</string>
+    <string name="MinPass">Mínimo 8 caracteres</string>
+    <string name="ToastRegistro">Registro Completado</string>
+    <string name="AlertError">Se ha producido un  error</string>
+    <string name="btnDialogAceptar">Aceptar</string>
 
 
 </resources>

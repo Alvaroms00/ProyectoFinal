@@ -18,11 +18,13 @@ import com.alvaro.proyectofinal.databinding.FragmentRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+
 
 class RegistroFragment : Fragment() {
     lateinit var binding: FragmentRegistroBinding
     lateinit var database: DatabaseReference
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -38,47 +40,35 @@ class RegistroFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        database = FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios")
         emailFocus()
         passFocus()
         nombreFocus()
-        database = FirebaseDatabase.getInstance().getReference("Usuarios")
-        val nombre = binding.introNombre.text.toString()
-        val email = binding.introEmail.text.toString()
-        val pass = binding.introPass.text.toString()
-        val nombreValido = binding.TILNombre.helperText == null
-        val emailValido = binding.TILEmail.helperText == null
-        val passValida = binding.TILPass.helperText == null
-
         binding.btnRegistro.setOnClickListener {
-            if (nombreValido && emailValido && passValida) {
-                if (email.isNotEmpty() && pass.isNotEmpty()) {
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                mostrarMenu(it.result?.user?.email ?: "", ProviderType.BASIC)
+            if (binding.introEmail.text.toString().isNotEmpty() && binding.introPass.text.toString().isNotEmpty()) {
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.introEmail.text.toString(), binding.introPass.text.toString())
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            mostrarMenu(it.result?.user?.email ?: "", ProviderType.BASIC)
 
-                                val usuario = this.activity?.getSharedPreferences(
-                                    getString(R.string.usuario),
-                                    Context.MODE_PRIVATE
-                                )
-                                usuario?.edit()?.putString("usuario", nombre)?.apply()
-                                usuario?.edit()?.putString("email", email)?.apply()
-                                usuario?.edit()?.putString("pass", pass)?.apply()
+                            val usuario = this.activity?.getSharedPreferences(
+                                getString(R.string.usuario),
+                                Context.MODE_PRIVATE
+                            )
+                            usuario?.edit()?.putString("usuario", binding.introNombre.text.toString())?.apply()
 
-                                Toast.makeText(
-                                    activity,
-                                    getString(R.string.ToastRegistro),
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                onDestroy()
-                            } else {
-                                alerta()
-                            }
+                            Toast.makeText(
+                                activity,
+                                getString(R.string.ToastRegistro),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            onDestroy()
+                        } else {
+                            alerta()
                         }
-                }
-                guardarUsuarios()
+                    }
             }
-
+            guardarUsuarios()
         }
     }
 
@@ -153,8 +143,7 @@ class RegistroFragment : Fragment() {
         val pass = binding.introPass.text.toString()
         val idUsuario = database.push().key!!
 
-
-        val usuarios = Usuarios(idUsuario, nombre, email, pass)
+        val usuarios = Usuarios(nombre, email, pass)
 
         database.child(idUsuario).setValue(usuarios)
     }

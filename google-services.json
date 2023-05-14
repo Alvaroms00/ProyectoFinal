@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "910608488358",
-    "firebase_url": "https://proyectofinal-a80c9-default-rtdb.firebaseio.com",
-    "project_id": "proyectofinal-a80c9",
-    "storage_bucket": "proyectofinal-a80c9.appspot.com"
+    "project_number": "917053862335",
+    "firebase_url": "https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "proyectofinal-fdf7f",
+    "storage_bucket": "proyectofinal-fdf7f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:910608488358:android:a27abc8c0c02a80e596167",
+        "mobilesdk_app_id": "1:917053862335:android:cefa6936f611f0800ff10a",
         "android_client_info": {
-          "package_name": "com.alvaro.ProyectoFinal"
+          "package_name": "com.alvaro.proyectofinal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "910608488358-18uujpi62o2qlf7tlut8cgkortdfols3.apps.googleusercontent.com",
+          "client_id": "917053862335-siht0ka2p2mr53s05ftk1tm6ak5mm440.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyASe8mDxEV_BvpXhcV-9IEmpimGqLCUz5U"
+          "current_key": "AIzaSyC8gctT9w4yS8mHzPiwyl8rjtaG3iiu4WE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "910608488358-18uujpi62o2qlf7tlut8cgkortdfols3.apps.googleusercontent.com",
+              "client_id": "917053862335-siht0ka2p2mr53s05ftk1tm6ak5mm440.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
