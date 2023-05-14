@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="@string/txtPresentacion"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@id/btncontinuarPres"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

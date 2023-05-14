@@ -26,8 +26,7 @@
             android:label="Ahorcado" />
         <activity
             android:name=".SeleccionActivity"
-            android:exported="false"
-            android:label="@string/app_name" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

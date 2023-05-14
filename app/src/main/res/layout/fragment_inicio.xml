@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="@string/txtInicio"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/btnContinuarInicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"

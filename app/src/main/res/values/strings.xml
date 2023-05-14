@@ -8,7 +8,7 @@
     <string name="txtAhorcado">Hangman Game</string>
     <string name="ahorcado">Hangman</string>
     <string name="txtPresentacion">We have several mini-games to pass the time with.</string>
-    <string name="txtPuntuacion">Compete against other players and your friends to become the \nfirst of all!</string>
+    <string name="txtPuntuacion">Compete against other players and your friends to become the first of all!</string>
     <string name="btnRegistrar">Sign Up</string>
     <string name="txtRegistro">Sign Up\n and \n ¡Start playing!</string>
     <string name="introNombre">Name</string>
@@ -22,5 +22,11 @@
     <string name="Idioma2">Spanish</string>
     <string name="celda">Cell</string>
     <string name="cuenta">Account</string>
-    <string name="btnJugar">Jugar</string>
+    <string name="btnJugar">Play</string>
+    <string name="btnGoogle">Sign up whit Google</string>
+    <string name="EmailIncorrecto">Invalid Email Address</string>
+    <string name="MinPass">Minimum 8 Character Password</string>
+    <string name="ToastRegistro">Completed registration</string>
+    <string name="AlertError">An error occurred while registering</string>
+    <string name="btnDialogAceptar">Accept</string>
 </resources>
