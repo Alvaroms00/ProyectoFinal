@@ -35,10 +35,12 @@ class CerrarsesionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.btnCerrarSesion.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
+            onDestroy()
         }
     }
 

@@ -27,6 +27,7 @@
     <string name="ToastRegistro">Registro Completado</string>
     <string name="AlertError">Se ha producido un  error</string>
     <string name="btnDialogAceptar">Aceptar</string>
+    <string name="btnLogin">Iniciar Sesión</string>
 
 
 </resources>

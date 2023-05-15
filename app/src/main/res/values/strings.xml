@@ -29,4 +29,5 @@
     <string name="ToastRegistro">Completed registration</string>
     <string name="AlertError">An error occurred while registering</string>
     <string name="btnDialogAceptar">Accept</string>
+    <string name="btnLogin">Sign In</string>
 </resources>

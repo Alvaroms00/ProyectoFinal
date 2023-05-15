@@ -19,7 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/soporte"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp"
+            android:contentDescription="soporte" />
 
         <ImageView
             android:id="@+id/imgCabeza"
@@ -29,7 +30,8 @@
             android:paddingStart="108dp"
             android:paddingTop="23dp"
             android:visibility="invisible"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp"
+            android:contentDescription="cabeza" />
         <ImageView
             android:id="@+id/imgCuerpo"
             android:layout_width="wrap_content"
@@ -38,7 +40,8 @@
             android:paddingStart="120dp"
             android:paddingTop="53dp"
             android:visibility="invisible"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp"
+            android:contentDescription="cuerpo" />
 
         <ImageView
             android:id="@+id/imgBrazoDerecho"
@@ -48,7 +51,8 @@
             android:paddingStart="123dp"
             android:paddingTop="58dp"
             android:visibility="invisible"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp"
+            android:contentDescription="brazo derecho" />
         <ImageView
             android:id="@+id/imgBrazoIzquierdo"
             android:layout_width="wrap_content"
@@ -57,7 +61,8 @@
             android:paddingStart="101dp"
             android:paddingTop="58dp"
             android:visibility="invisible"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp"
+            android:contentDescription="brazo Izquierdo" />
         <ImageView
             android:id="@+id/imgPiernaDerecha"
             android:layout_width="wrap_content"
@@ -66,23 +71,26 @@
             android:paddingStart="123dp"
             android:paddingTop="83dp"
             android:visibility="invisible"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp"
+            android:contentDescription="pierna derecha" />
+
         <ImageView
             android:id="@+id/imgPiernaIzquierda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/pierna_izquierda"
+            android:layout_marginBottom="40dp"
+            android:contentDescription="pierna izquierda"
             android:paddingStart="101dp"
             android:paddingTop="83dp"
             android:visibility="invisible"
-            android:layout_marginBottom="40dp"/>
+            app:srcCompat="@drawable/pierna_izquierda" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/palabra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="30dp"
         android:background="@color/white"
         android:padding="10dp"
         android:orientation="horizontal"
@@ -93,12 +101,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="5dp"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:horizontalSpacing="15dp"
         android:numColumns="5"
         android:padding="15dp"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="15dp"
-        android:horizontalSpacing="15dp"/>
+        android:verticalSpacing="15dp" />
 
 </LinearLayout>

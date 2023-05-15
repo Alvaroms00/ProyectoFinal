@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -47,7 +48,6 @@ public class HangmanActivity extends AppCompatActivity {
         partes[3] = findViewById(R.id.imgBrazoIzquierdo);
         partes[4] = findViewById(R.id.imgPiernaDerecha);
         partes[5] = findViewById(R.id.imgPiernaIzquierda);
-
         juego();
     }
 
@@ -98,6 +98,7 @@ public class HangmanActivity extends AppCompatActivity {
             }
         }
 
+
         if (correcto){
             if (numCorrecto == numCaracter){
                 deshabilitarBoton();
@@ -129,4 +130,5 @@ public class HangmanActivity extends AppCompatActivity {
             gridView.getChildAt(i).setEnabled(false);
         }
     }
+
 }
