@@ -12,18 +12,53 @@
         android:layout_width="190dp"
         android:layout_height="170dp"
         android:src="@drawable/tictactoe"
-        app:layout_constraintBottom_toTopOf="@+id/btnTresEnRaya"
+        app:layout_constraintBottom_toTopOf="@+id/txtPuntuacionTresEnRaya"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTresEnRaya"/>
 
     <Button
         android:id="@+id/btnTresEnRaya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_play_arrow_24"
         android:text="@string/btnJugar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFechaTresEnRaya" />
+
+    <TextView
+        android:id="@+id/txtPuntuacionTresEnRaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puntuación total: 0 puntos"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtFechaTresEnRaya"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img3EnRaya" />
+
+    <TextView
+        android:id="@+id/txtFechaTresEnRaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Última vez jugado: Nunca"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnTresEnRaya"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPuntuacionTresEnRaya" />
+
+    <TextView
+        android:id="@+id/txtTresEnRaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtTicTacToe"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/img3EnRaya"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

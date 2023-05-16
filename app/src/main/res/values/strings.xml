@@ -4,7 +4,7 @@
     <string name="title_activity_hangman">Hangman</string>
     <string name="btnContinuar">Continue</string>
     <string name="txtInicio">Welcome!,\ncome in and enjoy the different games we offer.</string>
-    <string name="txtTicTacToe">3 En Raya</string>
+    <string name="txtTicTacToe">Tic Tac Toe</string>
     <string name="txtAhorcado">Hangman Game</string>
     <string name="ahorcado">Hangman</string>
     <string name="txtPresentacion">We have several mini-games to pass the time with.</string>

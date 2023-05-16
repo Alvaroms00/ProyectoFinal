@@ -12,18 +12,56 @@
         android:layout_width="190dp"
         android:layout_height="170dp"
         android:src="@drawable/hangman"
-        app:layout_constraintBottom_toTopOf="@+id/btnAhorcado"
+        app:layout_constraintBottom_toTopOf="@+id/txtPuntuacionJuego"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtJuegoAhorcado" />
 
     <Button
         android:id="@+id/btnAhorcado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugar"
+        android:drawableLeft="@drawable/baseline_play_arrow_24"
+        android:text="@string/btnJugar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFecha" />
+
+    <TextView
+        android:id="@+id/txtPuntuacionJuego"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puntuación Total: 0 puntos"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtFecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgHangman" />
+
+    <TextView
+        android:id="@+id/txtFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Última vez Jugado: Nunca"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAhorcado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPuntuacionJuego" />
+
+    <TextView
+        android:id="@+id/txtJuegoAhorcado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtAhorcado"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imgHangman"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
