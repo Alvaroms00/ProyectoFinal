@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.TictactoeActivity
 import com.alvaro.proyectofinal.databinding.FragmentTictactoeBinding
+import java.text.SimpleDateFormat
+import java.util.Date
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +34,11 @@ class TictactoeFragment : Fragment() {
         binding.btnTresEnRaya.setOnClickListener{
             val intent = Intent(activity,TictactoeActivity::class.java)
             startActivity(intent)
+
+            val dateFormat = SimpleDateFormat("d MMM yyyy")
+            val fecha = dateFormat.format(Date())
+
+            binding.txtFechaTresEnRaya.text = "Última vez jugado: " + fecha
         }
 
     }

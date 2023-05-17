@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val usuario = getSharedPreferences("usuario", Context.MODE_PRIVATE)
-        var usuarioGuardado = usuario.getString("usuario", "")
+        val usuarioGuardado = usuario.getString("usuario", "")
 
         if (usuarioGuardado != ""){
             val intent = Intent(this,SeleccionActivity::class.java)
