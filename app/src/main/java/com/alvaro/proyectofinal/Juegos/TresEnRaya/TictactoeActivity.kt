@@ -1,25 +1,32 @@
 package com.alvaro.proyectofinal.Juegos.TresEnRaya
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.alvaro.proyectofinal.BaseDeDatos.Puntuacion
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos.Celda
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos.EstadoTablero
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos.Tablero
 import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.ActivityTictactoeBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class TictactoeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTictactoeBinding
     private val viewModel: ModelViewModel by viewModels()
+
+    var puntuacionJuego = 0
     override fun onCreate(savedIntanceState: Bundle?) {
         super.onCreate(savedIntanceState)
         binding = ActivityTictactoeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel.vistaTablero.observe(this, cambiosTablero)
         botones()
+
     }
 
     private val cambiosTablero = Observer { tablero: Tablero ->
@@ -55,12 +62,14 @@ class TictactoeActivity : AppCompatActivity() {
 
     private fun estadoJuego(estadoTablero: EstadoTablero) = when (estadoTablero) {
         EstadoTablero.CRUCES_GANAN -> {
+            puntuacionJuego = 500
             val builder = AlertDialog.Builder(this)
             builder.setIcon(R.drawable.victoria)
-            builder.setTitle("¡Victoria!")
+            builder.setTitle(getString(R.string.victoria))
             builder.setMessage("Has vencido a la maquina")
             builder.setPositiveButton("Jugar de Nuevo") { _, _ ->
                 viewModel.reiniciar()
+
             }
             builder.setNegativeButton("Salir") { _, _ ->
                 finish()
@@ -72,7 +81,7 @@ class TictactoeActivity : AppCompatActivity() {
         EstadoTablero.CIRCULOS_GANAN -> {
             val builder = AlertDialog.Builder(this)
             builder.setIcon(R.drawable.derrota)
-            builder.setTitle("Derrota")
+            builder.setTitle(getString(R.string.derrota))
             builder.setMessage("Has perdido contra la maquina")
             builder.setPositiveButton("Jugar de Nuevo") { _, _ ->
                 viewModel.reiniciar()
@@ -86,7 +95,7 @@ class TictactoeActivity : AppCompatActivity() {
 
         EstadoTablero.EMPATE -> {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Empate")
+            builder.setTitle(getString(R.string.empate))
             builder.setMessage("Has empatado contra la maquina")
             builder.setPositiveButton("Jugar de Nuevo") { _, _ ->
                 viewModel.reiniciar()
@@ -100,4 +109,6 @@ class TictactoeActivity : AppCompatActivity() {
 
         EstadoTablero.INCOMPLETO -> {}
     }
+
+
 }

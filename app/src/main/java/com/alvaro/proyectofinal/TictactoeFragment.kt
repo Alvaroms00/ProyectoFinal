@@ -7,8 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.alvaro.proyectofinal.BaseDeDatos.Puntuacion
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.TictactoeActivity
 import com.alvaro.proyectofinal.databinding.FragmentTictactoeBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -17,7 +20,7 @@ import java.util.Date
 
 class TictactoeFragment : Fragment() {
     private lateinit var binding: FragmentTictactoeBinding
-
+    private lateinit var database: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,17 +32,37 @@ class TictactoeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val dateFormat = SimpleDateFormat("d/MM/yyyy H:m")
-        val fecha = dateFormat.format(Date())
+
+        database =
+            FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app")
+                .getReference("PuntuacionTresEnRaya")
+        val preferencias = activity?.getSharedPreferences("usuario",Context.MODE_PRIVATE)
+        val fecha = preferencias?.getString("fechaTresEnRaya", "")
 
         binding.btnTresEnRaya.setOnClickListener {
             val intent = Intent(activity, TictactoeActivity::class.java)
             startActivity(intent)
 
-            val preferencias = activity?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
-            preferencias?.edit()?.putString("fecha tresEnRaya", fecha)
-            binding.txtFechaTresEnRaya.text = "Última vez jugado: " + fecha
-        }
+            val dateFormat = SimpleDateFormat("d/MM/yyyy H:mm")
+            val fecha = dateFormat.format(Date()).toString()
 
+            val preferencias = activity?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
+            preferencias?.edit()?.putString("fechaTresEnRaya", fecha)?.apply()
+            binding.txtFechaTresEnRaya.text = "Última vez jugado: " + fecha
+            guardarPuntuacion()
+        }
+        binding.txtFechaTresEnRaya.text = "Última vez jugado: " + fecha
+    } private fun guardarPuntuacion(){
+        val preferencias = activity?.getSharedPreferences("usuario",Context.MODE_PRIVATE)
+        val usuario = preferencias?.getString("usuario", "")
+        val fechaJuego = preferencias?.getString("fechaTresEnRaya", "")
+
+        val puntuacion = 0
+        val idPuntuacion = database.push().key!!
+
+        val guardarPuntuacion = Puntuacion(usuario, fechaJuego, puntuacion)
+
+        database.child(idPuntuacion).setValue(guardarPuntuacion)
     }
+
 }
