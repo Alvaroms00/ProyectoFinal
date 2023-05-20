@@ -2,16 +2,14 @@ package com.alvaro.proyectofinal
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.alvaro.proyectofinal.databinding.ActivityMainBinding
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -26,21 +24,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
 
-        CoroutineScope(Dispatchers.IO).launch{
+        CoroutineScope(Dispatchers.IO).launch {
             delay(1000)
-            screenSplash.setKeepOnScreenCondition{ false }
+            screenSplash.setKeepOnScreenCondition { false }
         }
 
         val usuario = getSharedPreferences("usuario", Context.MODE_PRIVATE)
         val usuarioGuardado = usuario.getString("usuario", "")
 
-        if (usuarioGuardado != ""){
-            val intent = Intent(this,SeleccionActivity::class.java)
+        if (usuarioGuardado != "") {
+            val intent = Intent(this, SeleccionActivity::class.java)
             startActivity(intent)
             finish()
-        }else{
+        } else {
             setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
-            val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            val navHostFragment =
+                supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
             navController = navHostFragment.navController
         }
     }

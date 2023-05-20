@@ -1,10 +1,10 @@
 package com.alvaro.proyectofinal.Menus
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.alvaro.proyectofinal.HangmanFragment
 import com.alvaro.proyectofinal.TictactoeFragment
@@ -14,16 +14,12 @@ class JuegosFragment : Fragment() {
 
     lateinit var binding: FragmentJuegosBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        binding = FragmentJuegosBinding.inflate(inflater,container,false)
+        binding = FragmentJuegosBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,12 +28,13 @@ class JuegosFragment : Fragment() {
 
         binding.viewPager.adapter = PagerAdapter(this)
     }
-    class PagerAdapter(fragment: Fragment): FragmentStateAdapter(fragment){
+
+    class PagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int = 2
 
         override fun createFragment(position: Int): Fragment {
-            return when(position){
-                0-> HangmanFragment()
+            return when (position) {
+                0 -> HangmanFragment()
                 1 -> TictactoeFragment()
                 else -> HangmanFragment()
             }

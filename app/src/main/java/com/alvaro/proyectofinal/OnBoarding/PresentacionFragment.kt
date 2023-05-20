@@ -1,10 +1,10 @@
 package com.alvaro.proyectofinal.OnBoarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.alvaro.proyectofinal.R
@@ -18,16 +18,12 @@ class PresentacionFragment : Fragment() {
     lateinit var binding: FragmentPresentacionBinding
     lateinit var navController: NavController
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        binding = FragmentPresentacionBinding.inflate(inflater,container,false)
+        binding = FragmentPresentacionBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -35,7 +31,7 @@ class PresentacionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
 
-        binding.btncontinuarPres.setOnClickListener{
+        binding.btncontinuarPres.setOnClickListener {
             navController.navigate(R.id.action_presentacionFragment_to_puntuacionFragment)
         }
     }

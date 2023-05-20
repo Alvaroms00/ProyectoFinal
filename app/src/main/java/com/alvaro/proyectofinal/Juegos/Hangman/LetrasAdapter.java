@@ -14,10 +14,10 @@ public class LetrasAdapter extends BaseAdapter {
     private final String[] letras;
     private final LayoutInflater letrasLayout;
 
-    public LetrasAdapter(Context context){
+    public LetrasAdapter(Context context) {
         letras = new String[26];
-        for (int i = 0; i < letras.length; i++){
-            letras[i] = "" + (char)(i + 'A');
+        for (int i = 0; i < letras.length; i++) {
+            letras[i] = "" + (char) (i + 'A');
         }
         letrasLayout = LayoutInflater.from(context);
     }
@@ -40,10 +40,10 @@ public class LetrasAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         Button btnLetra;
-        if (view == null){
-            btnLetra = (Button) letrasLayout.inflate(R.layout.letras,viewGroup,false);
-        }else {
-            btnLetra = (Button)view;
+        if (view == null) {
+            btnLetra = (Button) letrasLayout.inflate(R.layout.letras, viewGroup, false);
+        } else {
+            btnLetra = (Button) view;
         }
         btnLetra.setText(letras[i]);
         return btnLetra;

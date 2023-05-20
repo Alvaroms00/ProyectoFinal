@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -51,10 +50,11 @@ public class HangmanActivity extends AppCompatActivity {
         juego();
     }
 
-    private void juego(){
+    private void juego() {
         String nuevaPalabra = palabras[random.nextInt(palabras.length)];
 
-        while(nuevaPalabra.equals(palabraAnterior))nuevaPalabra = palabras[random.nextInt(palabras.length)];
+        while (nuevaPalabra.equals(palabraAnterior))
+            nuevaPalabra = palabras[random.nextInt(palabras.length)];
 
         palabraAnterior = nuevaPalabra;
 
@@ -62,7 +62,7 @@ public class HangmanActivity extends AppCompatActivity {
 
         palabraLayout.removeAllViews();
 
-        for (int i = 0; i < palabraAnterior.length(); i++){
+        for (int i = 0; i < palabraAnterior.length(); i++) {
             letrasView[i] = new TextView(this);
             letrasView[i].setText("" + palabraAnterior.charAt(i));
             letrasView[i].setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -78,20 +78,21 @@ public class HangmanActivity extends AppCompatActivity {
         parteAnterior = 0;
         numCaracter = palabraAnterior.length();
 
-        for (int i = 0; i <partesSize; i++){
-            partes[i].setVisibility(View.INVISIBLE);}
+        for (int i = 0; i < partesSize; i++) {
+            partes[i].setVisibility(View.INVISIBLE);
+        }
     }
 
-    public void letraPresionada(View view){
-        String letra = ((TextView)view).getText().toString();
+    public void letraPresionada(View view) {
+        String letra = ((TextView) view).getText().toString();
         char letraChar = letra.charAt(0);
 
         view.setEnabled(false);
 
         boolean correcto = false;
 
-        for (int i=0; i<palabraAnterior.length();i++){
-            if (palabraAnterior.charAt(i)==letraChar){
+        for (int i = 0; i < palabraAnterior.length(); i++) {
+            if (palabraAnterior.charAt(i) == letraChar) {
                 correcto = true;
                 numCorrecto++;
                 letrasView[i].setTextColor(Color.BLACK);
@@ -99,8 +100,8 @@ public class HangmanActivity extends AppCompatActivity {
         }
 
 
-        if (correcto){
-            if (numCorrecto == numCaracter){
+        if (correcto) {
+            if (numCorrecto == numCaracter) {
                 deshabilitarBoton();
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.drawable.victoria);
@@ -110,10 +111,10 @@ public class HangmanActivity extends AppCompatActivity {
                 builder.setNegativeButton("Salir", (dialog, which) -> finish());
                 builder.show();
             }
-        } else if (parteAnterior<partesSize) {
+        } else if (parteAnterior < partesSize) {
             partes[parteAnterior].setVisibility(View.VISIBLE);
             parteAnterior++;
-        }else{
+        } else {
             deshabilitarBoton();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setIcon(R.drawable.derrota);

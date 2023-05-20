@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:onClick="ponerFicha"
+    android:layout_gravity="center"
     tools:context=".Juegos.TresEnRaya.TictactoeActivity">
 
     <ImageView
@@ -148,5 +149,5 @@
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/celda_9"
         app:layout_constraintStart_toEndOf="@id/celda_5"
-        app:layout_constraintTop_toTopOf="@id/celda_3"/>
+        app:layout_constraintTop_toTopOf="@id/celda_3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

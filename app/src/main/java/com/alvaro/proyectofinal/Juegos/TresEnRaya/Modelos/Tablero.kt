@@ -1,24 +1,24 @@
 package com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos
 
-class Tablero(private  val tablero: MutableMap<Celda, EstadoCelda> = mutableMapOf()) {
+class Tablero(private val tablero: MutableMap<Celda, EstadoCelda> = mutableMapOf()) {
 
-    fun estado(celda: Celda): EstadoCelda{
+    fun estado(celda: Celda): EstadoCelda {
         return tablero[celda] ?: EstadoCelda.Vacio
     }
 
-    fun estadoCelda(celda: Celda, estadoCelda: EstadoCelda): Boolean{
-        if (tablero.containsKey(celda)){
+    fun estadoCelda(celda: Celda, estadoCelda: EstadoCelda): Boolean {
+        if (tablero.containsKey(celda)) {
             return false
         }
         tablero[celda] = estadoCelda
         return true
     }
 
-    fun reiniciarTablero(){
+    fun reiniciarTablero() {
         tablero.clear()
     }
 
-    fun buscarMovimientoGanador(estado: EstadoCelda): Celda? = when{
+    fun buscarMovimientoGanador(estado: EstadoCelda): Celda? = when {
         Celda.TOP_LEFT victoria estado -> Celda.TOP_LEFT
         Celda.TOP_CENTER victoria estado -> Celda.TOP_CENTER
         Celda.TOP_RIGHT victoria estado -> Celda.TOP_RIGHT
@@ -32,8 +32,8 @@ class Tablero(private  val tablero: MutableMap<Celda, EstadoCelda> = mutableMapO
         else -> null
     }
 
-    private infix  fun Celda.victoria(estado: EstadoCelda): Boolean{
-        if (tablero.containsKey(this)){
+    private infix fun Celda.victoria(estado: EstadoCelda): Boolean {
+        if (tablero.containsKey(this)) {
             return false
         }
         tablero[this] = estado
@@ -43,18 +43,18 @@ class Tablero(private  val tablero: MutableMap<Celda, EstadoCelda> = mutableMapO
     }
 
     val estadoTablero: EstadoTablero
-        get() = when{
+        get() = when {
             estadoVictoria(EstadoCelda.Cruz) -> EstadoTablero.CRUCES_GANAN
             estadoVictoria(EstadoCelda.Circulo) -> EstadoTablero.CIRCULOS_GANAN
             tablero.size < 9 -> EstadoTablero.INCOMPLETO
             else -> EstadoTablero.EMPATE
         }
 
-    private fun estadoVictoria(estado: EstadoCelda): Boolean{
+    private fun estadoVictoria(estado: EstadoCelda): Boolean {
         fun estadoPrueba(vararg celdas: Celda): Boolean = celdas.all { celda ->
             tablero[celda] == estado
         }
-        return  estadoPrueba(Celda.TOP_LEFT, Celda.CENTER_LEFT, Celda.BOT_LEFT) ||
+        return estadoPrueba(Celda.TOP_LEFT, Celda.CENTER_LEFT, Celda.BOT_LEFT) ||
                 estadoPrueba(Celda.TOP_CENTER, Celda.CENTER_CENTER, Celda.BOT_CENTER) ||
                 estadoPrueba(Celda.TOP_RIGHT, Celda.CENTER_RIGHT, Celda.BOT_RIGHT) ||
                 estadoPrueba(Celda.TOP_LEFT, Celda.TOP_CENTER, Celda.TOP_RIGHT) ||

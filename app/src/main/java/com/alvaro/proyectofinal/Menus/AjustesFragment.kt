@@ -8,10 +8,6 @@ import androidx.fragment.app.Fragment
 import com.alvaro.proyectofinal.R
 
 class AjustesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

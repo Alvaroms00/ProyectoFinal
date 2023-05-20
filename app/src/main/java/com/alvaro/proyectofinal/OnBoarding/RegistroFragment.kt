@@ -5,11 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.alvaro.proyectofinal.BaseDeDatos.Usuarios
 import com.alvaro.proyectofinal.MainActivity
 import com.alvaro.proyectofinal.Menus.ProviderType
@@ -18,21 +18,16 @@ import com.alvaro.proyectofinal.databinding.FragmentRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
 
 class RegistroFragment : Fragment() {
     lateinit var binding: FragmentRegistroBinding
     lateinit var database: DatabaseReference
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentRegistroBinding.inflate(inflater, container, false)
         return binding.root
@@ -40,13 +35,20 @@ class RegistroFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        database = FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios")
+        database =
+            FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app")
+                .getReference("Usuarios")
         emailFocus()
         passFocus()
         nombreFocus()
         binding.btnRegistro.setOnClickListener {
-            if (binding.introEmail.text.toString().isNotEmpty() && binding.introPass.text.toString().isNotEmpty()) {
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.introEmail.text.toString(), binding.introPass.text.toString())
+            if (binding.introEmail.text.toString().isNotEmpty() && binding.introPass.text.toString()
+                    .isNotEmpty()
+            ) {
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+                    binding.introEmail.text.toString(),
+                    binding.introPass.text.toString()
+                )
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             mostrarMenu(it.result?.user?.email ?: "", ProviderType.BASIC)
@@ -55,7 +57,8 @@ class RegistroFragment : Fragment() {
                                 getString(R.string.usuario),
                                 Context.MODE_PRIVATE
                             )
-                            usuario?.edit()?.putString("usuario", binding.introNombre.text.toString())?.apply()
+                            usuario?.edit()
+                                ?.putString("usuario", binding.introNombre.text.toString())?.apply()
 
                             Toast.makeText(
                                 activity,

@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toTopOf="@+id/txtPuntuacionTresEnRaya"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTresEnRaya"/>
+        app:layout_constraintTop_toBottomOf="@+id/txtTresEnRaya" />
 
     <Button
         android:id="@+id/btnTresEnRaya"
@@ -60,5 +60,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/img3EnRaya"/>
+        app:layout_constraintBottom_toTopOf="@id/img3EnRaya" />
 </androidx.constraintlayout.widget.ConstraintLayout>

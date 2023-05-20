@@ -1,7 +1,7 @@
 package com.alvaro.proyectofinal
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.alvaro.proyectofinal.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
