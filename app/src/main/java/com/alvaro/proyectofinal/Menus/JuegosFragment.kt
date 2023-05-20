@@ -27,6 +27,7 @@ class JuegosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.viewPager.adapter = PagerAdapter(this)
+
     }
 
     class PagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {

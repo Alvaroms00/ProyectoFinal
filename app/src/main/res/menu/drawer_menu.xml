@@ -4,12 +4,12 @@
     <item
         android:id="@+id/juegosFragment"
         android:icon="@drawable/baseline_home_24"
-        android:title="Menú Principal"/>
+        android:title="@string/menuPrincipal"/>
 
     <item
         android:id="@+id/rankingFragment"
         android:icon="@drawable/podium"
-        android:title="Puntuación"/>
+        android:title="@string/puntuacion"/>
 
 
     <item
@@ -20,7 +20,7 @@
     <item
         android:id="@+id/ajustesFragment"
         android:icon="@drawable/baseline_settings_24"
-        android:title="Ajustes"/>
+        android:title="@string/ajustes"/>
 
 
 </menu>

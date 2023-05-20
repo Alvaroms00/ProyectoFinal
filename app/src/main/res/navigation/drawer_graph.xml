@@ -8,22 +8,22 @@
     <fragment
         android:id="@+id/juegosFragment"
         android:name="com.alvaro.proyectofinal.Menus.JuegosFragment"
-        android:label="Juegos Clasicos"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_juegos" />
 
     <fragment
         android:id="@+id/cerrarsesionFragment"
         android:name="com.alvaro.proyectofinal.Menus.CerrarsesionFragment"
-        android:label="Información de la cuenta"
+        android:label="@string/cuenta"
         tools:layout="@layout/fragment_cerrarsesion" />
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.alvaro.proyectofinal.Menus.RankingFragment"
-        android:label="Ranking"
+        android:label="@string/puntuacion"
         tools:layout="@layout/fragment_ranking" />
     <fragment
         android:id="@+id/ajustesFragment"
         android:name="com.alvaro.proyectofinal.Menus.AjustesFragment"
-        android:label="Ajustes"
+        android:label="@string/ajustes"
         tools:layout="@layout/fragment_ajustes" />
 </navigation>

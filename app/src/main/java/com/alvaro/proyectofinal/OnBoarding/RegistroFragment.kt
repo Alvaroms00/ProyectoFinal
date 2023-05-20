@@ -70,8 +70,9 @@ class RegistroFragment : Fragment() {
                             alerta()
                         }
                     }
+                guardarUsuarios()
             }
-            guardarUsuarios()
+
         }
     }
 
