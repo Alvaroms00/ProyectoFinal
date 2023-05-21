@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.alvaro.proyectofinal.Menus.ProviderType
 import com.alvaro.proyectofinal.databinding.ActivityLoginBinding
@@ -34,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
                     }
             }
         }
-
     }
     private fun alerta() {
         val builder = AlertDialog.Builder(this)

@@ -1,19 +1,15 @@
 package com.alvaro.proyectofinal.Juegos.TresEnRaya
 
 import android.app.AlertDialog
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.alvaro.proyectofinal.BaseDeDatos.Puntuacion
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos.Celda
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos.EstadoTablero
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos.Tablero
 import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.ActivityTictactoeBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
 class TictactoeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTictactoeBinding
