@@ -59,7 +59,8 @@ class RegistroFragment : Fragment() {
                             )
                             usuario?.edit()
                                 ?.putString("usuario", binding.introNombre.text.toString())?.apply()
-
+                            usuario?.edit()?.putString("email", binding.introEmail.text.toString())
+                                ?.apply()
                             Toast.makeText(
                                 activity,
                                 getString(R.string.ToastRegistro),

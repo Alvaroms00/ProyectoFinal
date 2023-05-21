@@ -1,5 +1,6 @@
 package com.alvaro.proyectofinal.Menus
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,6 +30,12 @@ class CerrarsesionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val preferencias = activity?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
+        val nombre = preferencias?.getString("usuario", "")
+        val email = preferencias?.getString("email", "")
+        binding.txtUsuario.text = "Nombre de Usuario: $nombre"
+        binding.txtEmail.text = "Email: $email"
 
         binding.btnCerrarSesion.setOnClickListener {
             FirebaseAuth.getInstance().signOut()

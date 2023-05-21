@@ -14,4 +14,26 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+    @Test
+    fun testTextField() {
+        val inputText = "Hello, World!"
+        val textField = TextField()
+
+        textField.setText(inputText)
+
+        val actualText = textField.getText()
+        assertEquals(inputText, actualText)
+    }
+}
+
+class TextField {
+    private var text: String = ""
+
+    fun setText(text: String) {
+        this.text = text
+    }
+
+    fun getText(): String {
+        return text
+    }
 }
