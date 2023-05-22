@@ -37,4 +37,6 @@
     <string name="empate">Draw</string>
     <string name="derrota">Defeat</string>
     <string name="victoria">Victory!</string>
+    <string name="introRespuesta">Enter your guess</string>
+    <string name="btnComprobar">Check it</string>
 </resources>

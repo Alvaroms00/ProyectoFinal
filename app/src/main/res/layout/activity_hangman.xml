@@ -1,116 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#252525"
     android:orientation="vertical"
     tools:context=".Juegos.Hangman.HangmanActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imgJuegoAhorcado"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="center"
-        android:paddingTop="20dp">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:contentDescription="soporte"
+        app:srcCompat="@drawable/ahorcado_0" />
 
-        <ImageView
-            android:id="@+id/imgSoporte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/soporte"
-            android:layout_marginBottom="40dp"
-            android:contentDescription="soporte" />
-
-        <ImageView
-            android:id="@+id/imgCabeza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/cabeza"
-            android:paddingStart="108dp"
-            android:paddingTop="23dp"
-            android:visibility="invisible"
-            android:layout_marginBottom="40dp"
-            android:contentDescription="cabeza" />
-
-        <ImageView
-            android:id="@+id/imgCuerpo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/cuerpo"
-            android:paddingStart="120dp"
-            android:paddingTop="53dp"
-            android:visibility="invisible"
-            android:layout_marginBottom="40dp"
-            android:contentDescription="cuerpo" />
-
-        <ImageView
-            android:id="@+id/imgBrazoDerecho"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/brazo_derecho"
-            android:paddingStart="123dp"
-            android:paddingTop="58dp"
-            android:visibility="invisible"
-            android:layout_marginBottom="40dp"
-            android:contentDescription="brazo derecho" />
-
-        <ImageView
-            android:id="@+id/imgBrazoIzquierdo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/brazo_izquierdo"
-            android:paddingStart="101dp"
-            android:paddingTop="58dp"
-            android:visibility="invisible"
-            android:layout_marginBottom="40dp"
-            android:contentDescription="brazo Izquierdo" />
-
-        <ImageView
-            android:id="@+id/imgPiernaDerecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/pierna_derecha"
-            android:paddingStart="123dp"
-            android:paddingTop="83dp"
-            android:visibility="invisible"
-            android:layout_marginBottom="40dp"
-            android:contentDescription="pierna derecha" />
-
-        <ImageView
-            android:id="@+id/imgPiernaIzquierda"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:contentDescription="pierna izquierda"
-            android:paddingStart="101dp"
-            android:paddingTop="83dp"
-            android:visibility="invisible"
-            app:srcCompat="@drawable/pierna_izquierda" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/palabra"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txtAdivinar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:background="@color/white"
-        android:padding="10dp"
-        android:orientation="horizontal"
-        android:gravity="center" />
+        android:layout_below="@+id/imgJuegoAhorcado"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="24sp" />
 
     <GridView
-        android:id="@+id/letras"
+        android:id="@+id/gridLetras"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="30dp"
-        android:horizontalSpacing="15dp"
+        android:layout_below="@id/txtAdivinar"
+        android:gravity="center"
         android:numColumns="5"
-        android:padding="15dp"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="15dp" />
+        android:layout_marginTop="10dp"/>
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/editTextRespuesta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gridLetras"
+        android:hint="@string/introRespuesta"
+        android:minHeight="48dp"
+        android:inputType="text"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/botonComprobar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextRespuesta"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btnComprobar"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
