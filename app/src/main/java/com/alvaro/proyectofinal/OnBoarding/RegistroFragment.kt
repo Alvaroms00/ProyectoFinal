@@ -146,11 +146,12 @@ class RegistroFragment : Fragment() {
         val nombre = binding.introNombre.text.toString()
         val email = binding.introEmail.text.toString()
         val pass = binding.introPass.text.toString()
-        val idUsuario = database.push().key!!
+        val puntuacionAhorcado = 0
+        val puntuacionTresEnRaya = 0
 
-        val usuarios = Usuarios(nombre, email, pass)
+        val usuarios = Usuarios(nombre, email, pass, puntuacionAhorcado,puntuacionTresEnRaya)
 
-        database.child(idUsuario).setValue(usuarios)
+        database.child(nombre).setValue(usuarios)
     }
 
 }

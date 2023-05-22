@@ -35,6 +35,14 @@ class SeleccionActivity : AppCompatActivity() {
 
         NavigationUI.setupWithNavController(binding.navView, navController)
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
+
+        val inicio = FirebaseAuth.getInstance().currentUser
+
+        if (inicio == null){
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 }

@@ -44,12 +44,5 @@ class MainActivity : AppCompatActivity() {
             navController = navHostFragment.navController
         }
 
-        val inicio = FirebaseAuth.getInstance().currentUser
-
-        if (inicio == null){
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 }

@@ -65,7 +65,6 @@ class TictactoeActivity : AppCompatActivity() {
             builder.setMessage("Has vencido a la maquina")
             builder.setPositiveButton("Jugar de Nuevo") { _, _ ->
                 viewModel.reiniciar()
-
             }
             builder.setNegativeButton("Salir") { _, _ ->
                 finish()
@@ -105,6 +104,8 @@ class TictactoeActivity : AppCompatActivity() {
 
         EstadoTablero.INCOMPLETO -> {}
     }
+fun totalPuntuacion(){
 
+}
 
 }
