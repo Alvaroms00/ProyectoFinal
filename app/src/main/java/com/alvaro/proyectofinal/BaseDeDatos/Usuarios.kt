@@ -5,5 +5,5 @@ data class Usuarios(
     var email: String? = null,
     var pass: String? = null,
     var puntuacionAhorcado: Int? = null,
-    var puntacionTresEnRaya: Int? = null
+    var puntuacionTresEnRaya: Int? = null
 )

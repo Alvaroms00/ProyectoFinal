@@ -20,6 +20,7 @@ import java.util.Date
 
 class TictactoeFragment : Fragment() {
     private lateinit var binding: FragmentTictactoeBinding
+    private lateinit var database: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +35,19 @@ class TictactoeFragment : Fragment() {
 
         val preferencias = activity?.getSharedPreferences("usuario",Context.MODE_PRIVATE)
         val fecha = preferencias?.getString("fechaTresEnRaya", "")
+        val nombre = preferencias?.getString("usuario", "")
 
+        var puntuacion: String
+        database = FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios")
+
+        if (nombre != null) {
+            database.child(nombre).get().addOnSuccessListener {
+                if (it.exists()){
+                    puntuacion = it.child("puntuacionTresEnRaya").value.toString()
+                    binding.txtPuntuacionTresEnRaya.text = "${getString(R.string.txtPuntuacionTotal)} $puntuacion ${getString(R.string.puntos)}"
+                }
+            }
+        }
         binding.btnTresEnRaya.setOnClickListener {
             val intent = Intent(activity, TictactoeActivity::class.java)
             startActivity(intent)

@@ -149,7 +149,7 @@ class RegistroFragment : Fragment() {
         val puntuacionAhorcado = 0
         val puntuacionTresEnRaya = 0
 
-        val usuarios = Usuarios(nombre, email, pass, puntuacionAhorcado,puntuacionTresEnRaya)
+        val usuarios = Usuarios(nombre, email, pass, puntuacionAhorcado, puntuacionTresEnRaya)
 
         database.child(nombre).setValue(usuarios)
     }

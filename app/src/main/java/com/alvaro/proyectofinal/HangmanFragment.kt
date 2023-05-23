@@ -9,13 +9,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alvaro.proyectofinal.Juegos.Hangman.HangmanActivity
 import com.alvaro.proyectofinal.databinding.FragmentHangmanBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.Date
 
 class HangmanFragment : Fragment() {
 
     private lateinit var binding: FragmentHangmanBinding
-
+    private lateinit var database: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,7 +31,19 @@ class HangmanFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val preferencias = activity?.getSharedPreferences("usuario",Context.MODE_PRIVATE)
         val fecha = preferencias?.getString("fechaAhorcado", "")
+        val nombre = preferencias?.getString("usuario", "")
+        var puntuacion: String
 
+        database = FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios")
+
+        if (nombre != null) {
+            database.child(nombre).get().addOnSuccessListener {
+                if (it.exists()){
+                    puntuacion = it.child("puntuacionAhorcado").value.toString()
+                    binding.txtPuntuacionJuego.text = "${getString(R.string.txtPuntuacionTotal)} $puntuacion ${getString(R.string.puntos)}"
+                }
+            }
+        }
 
         binding.btnAhorcado.setOnClickListener {
             val intent = Intent(activity, HangmanActivity::class.java)
@@ -42,6 +56,8 @@ class HangmanFragment : Fragment() {
             preferencias?.edit()?.putString("fechaAhorcado", fecha)?.apply()
             binding.txtFecha.text = getString(R.string.txtFecha) + fecha
         }
-        binding.txtFecha.text = getString(R.string.txtFecha) + fecha
+        binding.txtFecha.text = "${getString(R.string.txtFecha)} $fecha"
+
     }
+
 }
