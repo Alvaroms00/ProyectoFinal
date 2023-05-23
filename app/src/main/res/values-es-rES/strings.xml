@@ -41,6 +41,11 @@
     <string name="salir">Salir</string>
     <string name="txtJugarDeNuevo">Jugar de Nuevo</string>
     <string name="btnCerrarSesion">Cerrar Sesión</string>
+    <string name="txtUsuario">Nombre de Usuario:</string>
+    <string name="txtEmail">Email:</string>
+    <string name="txtErrorNombre">No se ha introducido un nombre</string>
+    <string name="txtFecha">Última vez jugado:</string>
+    <string name="txtPuntuacionTotal">Puntuación total: 0 puntos</string>
 
 
 </resources>
