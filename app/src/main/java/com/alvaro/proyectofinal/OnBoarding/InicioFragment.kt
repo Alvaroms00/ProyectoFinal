@@ -34,6 +34,7 @@ class InicioFragment : Fragment() {
 
         binding.btnContinuarInicio.setOnClickListener {
             navController.navigate(R.id.action_inicioFragment_to_presentacionFragment)
+            onDestroy()
         }
     }
 

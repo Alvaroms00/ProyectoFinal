@@ -1,5 +1,6 @@
 package com.alvaro.proyectofinal.Juegos.Hangman
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -13,36 +14,44 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.ActivityHangmanBinding
 
-class HangmanActivity: AppCompatActivity(), View.OnClickListener  {
+class HangmanActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityHangmanBinding
 
+    private lateinit var palabraSecreta: String
+    private lateinit var palabrasArray: Array<String>
 
-    private val palabraSecreta = "programacion"
     private var letrasAdivinadas = ArrayList<Char>()
-    private var intentosRestantes = 6
+    private var intentosRestantes = 0
+    private val letrasPresionadas = mutableListOf<String>()
 
     private lateinit var txtPalabra: TextView
     private lateinit var imgAhorcado: ImageView
     private lateinit var editTextRespuesta: EditText
     private lateinit var botonComprobar: Button
     private lateinit var gridLetras: GridView
+    private lateinit var txtLetrasPresionadas: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHangmanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        txtPalabra = findViewById(R.id.txtAdivinar)
-        imgAhorcado = findViewById(R.id.imgJuegoAhorcado)
-        editTextRespuesta = findViewById(R.id.editTextRespuesta)
-        botonComprobar = findViewById(R.id.botonComprobar)
-        gridLetras = findViewById(R.id.gridLetras)
+        txtPalabra = binding.txtAdivinar
+        imgAhorcado = binding.imgJuegoAhorcado
+        editTextRespuesta = binding.editTextRespuesta
+        botonComprobar = binding.botonComprobar
+        gridLetras = binding.gridLetras
+        txtLetrasPresionadas = binding.letrasPresionadas
 
         botonComprobar.setOnClickListener(this)
 
-        val letrasAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, obtenerLetrasAbecedario())
-        gridLetras.adapter = letrasAdapter
-        gridLetras.onItemClickListener =
+        palabrasArray = resources.getStringArray(R.array.palabras)
+        palabraSecreta = palabrasArray.random()
+
+        val letrasAdapter =
+            ArrayAdapter(this, android.R.layout.simple_list_item_1, obtenerLetrasAbecedario())
+        binding.gridLetras.adapter = letrasAdapter
+        binding.gridLetras.onItemClickListener =
             AdapterView.OnItemClickListener { _, _, position, _ ->
                 val letra = letrasAdapter.getItem(position)
                 letra?.let { comprobarLetra(it) }
@@ -54,14 +63,16 @@ class HangmanActivity: AppCompatActivity(), View.OnClickListener  {
 
     override fun onClick(v: View?) {
         if (v?.id == R.id.botonComprobar) {
-            val respuesta = editTextRespuesta.text.toString().uppercase()
+            val respuesta = binding.editTextRespuesta.text.toString().uppercase()
             comprobarRespuesta(respuesta)
         }
     }
 
     private fun obtenerLetrasAbecedario(): List<String> {
-        return listOf("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-            "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+        return listOf(
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+            "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+        )
     }
 
     private fun comprobarLetra(letra: String) {
@@ -69,24 +80,30 @@ class HangmanActivity: AppCompatActivity(), View.OnClickListener  {
         if (!letrasAdivinadas.contains(letraChar)) {
             letrasAdivinadas.add(letraChar)
             if (!palabraSecreta.contains(letraChar)) {
-                intentosRestantes--
+                intentosRestantes++
+                letrasPresionadas.add(letra)
+                actualizarLetrasPresionadas()
                 actualizarImagenAhorcado()
             }
             actualizarPalabra()
-            if (intentosRestantes == 0 || palabraAdivinada()) {
+            if (intentosRestantes == 6){
                 desactivarBotones()
+                dialogoDerrota()
+            }else if(palabraAdivinada()) {
+                desactivarBotones()
+                dialogoVictoria()
             }
         }
     }
 
     private fun comprobarRespuesta(respuesta: String) {
         if (respuesta == palabraSecreta) {
-            letrasAdivinadas.clear()
-            letrasAdivinadas.addAll(palabraSecreta.toCharArray().toList())
-            actualizarPalabra()
-
+            for (letra in respuesta) {
+                comprobarLetra(letra.toString())
+            }
+            dialogoVictoria()
         } else {
-
+            dialogoDerrota()
         }
     }
 
@@ -113,12 +130,64 @@ class HangmanActivity: AppCompatActivity(), View.OnClickListener  {
     }
 
     private fun actualizarImagenAhorcado() {
-        val imagenId = resources.getIdentifier("ahorcado_$intentosRestantes", "drawable", packageName)
-        imgAhorcado.setImageResource(imagenId)
+        val imagenId =
+            resources.getIdentifier("ahorcado_$intentosRestantes", "drawable", packageName)
+        binding.imgJuegoAhorcado.setImageResource(imagenId)
     }
 
     private fun desactivarBotones() {
-        gridLetras.isEnabled = false
-        botonComprobar.isEnabled = false
+        binding.gridLetras.isEnabled = false
+        binding.botonComprobar.isEnabled = false
+    }
+
+    private fun obtenerPalabraAleatoria(): String {
+        return palabrasArray.random()
+    }
+
+    private fun reiniciarJuego() {
+        letrasAdivinadas.clear()
+        intentosRestantes = 0
+        palabraSecreta = obtenerPalabraAleatoria()
+        txtLetrasPresionadas.text = "${getString(R.string.txtLetraFallada)} "
+        letrasPresionadas.clear()
+
+        actualizarPalabra()
+        actualizarImagenAhorcado()
+
+        binding.gridLetras.isEnabled = true
+        binding.botonComprobar.isEnabled = true
+    }
+
+    private fun actualizarLetrasPresionadas() {
+        val letrasPresionadasText = letrasPresionadas.joinToString(", ")
+        txtLetrasPresionadas.text = "${getString(R.string.txtLetraFallada)}$letrasPresionadasText"
+    }
+
+    private fun dialogoVictoria(){
+        val builder = AlertDialog.Builder(this)
+        builder.setIcon(R.drawable.victoria)
+        builder.setTitle(getString(R.string.victoria))
+        builder.setMessage("¡Felicidades!\nHas adivinado la palabra.\n¿Deseas jugar de nuevo?")
+        builder.setPositiveButton(getString(R.string.txtJugarDeNuevo)) { _, _ ->
+            reiniciarJuego()
+        }
+        builder.setNegativeButton(getString(R.string.salir)) { _, _ ->
+            finish()
+        }
+        builder.show()
+    }
+
+    private fun dialogoDerrota(){
+        val builder = AlertDialog.Builder(this)
+        builder.setIcon(R.drawable.derrota)
+        builder.setTitle(getString(R.string.derrota))
+        builder.setMessage("Has perdido. La palabra era: $palabraSecreta.\n¿Deseas jugar de nuevo?")
+        builder.setPositiveButton(getString(R.string.txtJugarDeNuevo)) { _, _ ->
+            reiniciarJuego()
+        }
+        builder.setNegativeButton(R.string.salir) { _, _ ->
+            finish()
+        }
+        builder.show()
     }
 }

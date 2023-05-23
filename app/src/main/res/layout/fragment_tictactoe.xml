@@ -32,7 +32,7 @@
         android:id="@+id/txtPuntuacionTresEnRaya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Puntuación total: 0 puntos"
+        android:text="@string/txtPuntuacionTotal"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/txtFechaTresEnRaya"
         app:layout_constraintEnd_toEndOf="parent"

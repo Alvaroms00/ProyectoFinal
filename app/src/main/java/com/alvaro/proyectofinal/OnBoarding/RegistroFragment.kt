@@ -105,7 +105,7 @@ class RegistroFragment : Fragment() {
     private fun nombreValido(): String? {
         val textoNombre = binding.introNombre.text.toString()
         if (textoNombre.length < 1) {
-            return "No se ha introducido un nombre"
+            return getString(R.string.txtErrorNombre)
         }
         return null
     }

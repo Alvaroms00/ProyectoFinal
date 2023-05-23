@@ -33,6 +33,7 @@ class PresentacionFragment : Fragment() {
 
         binding.btncontinuarPres.setOnClickListener {
             navController.navigate(R.id.action_presentacionFragment_to_puntuacionFragment)
+            onDestroy()
         }
     }
 }

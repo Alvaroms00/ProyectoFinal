@@ -32,6 +32,15 @@
     <string name="puntuacion">Puntuación</string>
     <string name="ajustes">Ajustes</string>
     <string name="menuPrincipal">Menú Principal</string>
+    <string name="empate">Empate</string>
+    <string name="derrota">Derrota</string>
+    <string name="victoria">¡Victoria!</string>
+    <string name="introRespuesta">Introduce la palabra</string>
+    <string name="btnComprobar">Comprobar</string>
+    <string name="txtLetraFallada">Letras falladas:</string>
+    <string name="salir">Salir</string>
+    <string name="txtJugarDeNuevo">Jugar de Nuevo</string>
+    <string name="btnCerrarSesion">Cerrar Sesión</string>
 
 
 </resources>

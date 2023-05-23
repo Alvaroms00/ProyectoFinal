@@ -33,6 +33,7 @@ class PuntuacionFragment : Fragment() {
 
         binding.btnContinuarPunt.setOnClickListener {
             navController.navigate(R.id.action_puntuacionFragment_to_registroFragment)
+            onDestroy()
         }
     }
 

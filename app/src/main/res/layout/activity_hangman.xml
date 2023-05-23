@@ -12,8 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        app:srcCompat="@drawable/ahorcado_0" />
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/ahorcado_0"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/txtAdivinar"
@@ -21,7 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgJuegoAhorcado"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:textSize="24sp" />
 
     <GridView
@@ -31,17 +34,32 @@
         android:layout_below="@id/txtAdivinar"
         android:gravity="center"
         android:numColumns="5"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/letrasPresionadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gridLetras"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="@string/txtLetraFallada"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"/>
 
     <EditText
         android:id="@+id/editTextRespuesta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/gridLetras"
+        android:layout_below="@id/letrasPresionadas"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:hint="@string/introRespuesta"
-        android:minHeight="48dp"
         android:inputType="text"
-        android:layout_marginTop="10dp"/>
+        android:minHeight="48dp"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/botonComprobar"
@@ -50,6 +68,7 @@
         android:layout_below="@id/editTextRespuesta"
         android:layout_centerHorizontal="true"
         android:text="@string/btnComprobar"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"/>
 
 </RelativeLayout>

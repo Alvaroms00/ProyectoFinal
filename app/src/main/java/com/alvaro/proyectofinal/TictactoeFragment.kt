@@ -45,9 +45,9 @@ class TictactoeFragment : Fragment() {
             val preferencias = activity?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
 
             preferencias?.edit()?.putString("fechaTresEnRaya", fecha)?.apply()
-            binding.txtFechaTresEnRaya.text = "Última vez jugado: " + fecha
+            binding.txtFechaTresEnRaya.text = getString(R.string.txtFecha) + fecha
 
         }
-        binding.txtFechaTresEnRaya.text = "Última vez jugado: " + fecha
+        binding.txtFechaTresEnRaya.text = getString(R.string.txtFecha) + fecha
     }
 }

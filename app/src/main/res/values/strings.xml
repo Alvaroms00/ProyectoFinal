@@ -39,4 +39,13 @@
     <string name="victoria">Victory!</string>
     <string name="introRespuesta">Enter your guess</string>
     <string name="btnComprobar">Check it</string>
+    <string name="txtLetraFallada">Letters failed: </string>
+    <string name="salir">Exit</string>
+    <string name="txtJugarDeNuevo">Play Again</string>
+    <string name="btnCerrarSesion">Log out</string>
+    <string name="txtUsuario">Username: </string>
+    <string name="txtEmail">Email: </string>
+    <string name="txtErrorNombre">A name has not been entered</string>
+    <string name="txtFecha">Last time played:</string>
+    <string name="txtPuntuacionTotal">Total Score: 0 points</string>
 </resources>

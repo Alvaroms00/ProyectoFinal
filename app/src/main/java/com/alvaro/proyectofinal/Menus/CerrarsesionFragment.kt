@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alvaro.proyectofinal.LoginActivity
+import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.FragmentCerrarsesionBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,8 +35,8 @@ class CerrarsesionFragment : Fragment() {
         val preferencias = activity?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
         val nombre = preferencias?.getString("usuario", "")
         val email = preferencias?.getString("email", "")
-        binding.txtUsuario.text = "Nombre de Usuario: $nombre"
-        binding.txtEmail.text = "Email: $email"
+        binding.txtUsuario.text = "${getString(R.string.txtUsuario)}$nombre"
+        binding.txtEmail.text = "${getString(R.string.txtEmail)}$email"
 
         binding.btnCerrarSesion.setOnClickListener {
             FirebaseAuth.getInstance().signOut()

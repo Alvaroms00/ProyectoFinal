@@ -40,8 +40,8 @@ class HangmanFragment : Fragment() {
 
             val preferencias = activity?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
             preferencias?.edit()?.putString("fechaAhorcado", fecha)?.apply()
-            binding.txtFecha.text = "Última vez jugado: " + fecha
+            binding.txtFecha.text = getString(R.string.txtFecha) + fecha
         }
-        binding.txtFecha.text = "Última vez jugado: " + fecha
+        binding.txtFecha.text = getString(R.string.txtFecha) + fecha
     }
 }

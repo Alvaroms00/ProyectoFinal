@@ -63,10 +63,10 @@ class TictactoeActivity : AppCompatActivity() {
             builder.setIcon(R.drawable.victoria)
             builder.setTitle(getString(R.string.victoria))
             builder.setMessage("Has vencido a la maquina")
-            builder.setPositiveButton("Jugar de Nuevo") { _, _ ->
+            builder.setPositiveButton(getString(R.string.txtJugarDeNuevo)) { _, _ ->
                 viewModel.reiniciar()
             }
-            builder.setNegativeButton("Salir") { _, _ ->
+            builder.setNegativeButton(getString(R.string.salir)) { _, _ ->
                 finish()
             }
             val dialog: AlertDialog = builder.create()
@@ -78,10 +78,10 @@ class TictactoeActivity : AppCompatActivity() {
             builder.setIcon(R.drawable.derrota)
             builder.setTitle(getString(R.string.derrota))
             builder.setMessage("Has perdido contra la maquina")
-            builder.setPositiveButton("Jugar de Nuevo") { _, _ ->
+            builder.setPositiveButton(getString(R.string.txtJugarDeNuevo)) { _, _ ->
                 viewModel.reiniciar()
             }
-            builder.setNegativeButton("Salir") { _, _ ->
+            builder.setNegativeButton(getString(R.string.salir)) { _, _ ->
                 finish()
             }
             val dialog: AlertDialog = builder.create()
