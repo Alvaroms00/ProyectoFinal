@@ -98,12 +98,15 @@ class HangmanActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun comprobarRespuesta(respuesta: String) {
         if (respuesta == palabraSecreta) {
-            for (letra in respuesta) {
-                comprobarLetra(letra.toString())
-            }
+            letrasAdivinadas.clear()
+            letrasAdivinadas.addAll(palabraSecreta.toCharArray().toList())
+            actualizarPalabra()
+
+            desactivarBotones()
             dialogoVictoria()
         } else {
             dialogoDerrota()
+            desactivarBotones()
         }
     }
 
@@ -150,6 +153,7 @@ class HangmanActivity : AppCompatActivity(), View.OnClickListener {
         palabraSecreta = obtenerPalabraAleatoria()
         txtLetrasPresionadas.text = "${getString(R.string.txtLetraFallada)} "
         letrasPresionadas.clear()
+        binding.editTextRespuesta.setText("")
 
         actualizarPalabra()
         actualizarImagenAhorcado()
