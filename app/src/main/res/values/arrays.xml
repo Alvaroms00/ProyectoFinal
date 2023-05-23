@@ -22,4 +22,14 @@
         <item>REGAZO</item>
         <item>CARTERA</item>
     </string-array>
+
+    <string-array name="idiomas">
+        <item>English</item>
+        <item>Español</item>
+    </string-array>
+
+    <string-array name="language_codes">
+        <item>en</item>
+        <item>es</item>
+    </string-array>
 </resources>

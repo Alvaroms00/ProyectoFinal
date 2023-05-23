@@ -45,7 +45,8 @@
     <string name="txtEmail">Email:</string>
     <string name="txtErrorNombre">No se ha introducido un nombre</string>
     <string name="txtFecha">Última vez jugado:</string>
-    <string name="txtPuntuacionTotal">Puntuación total: 0 puntos</string>
+    <string name="txtPuntuacionTotal">Puntuación total:</string>
+    <string name="txtVersion">Version de la aplicación</string>
 
 
 </resources>

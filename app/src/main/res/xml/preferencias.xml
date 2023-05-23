@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="Ajustes generales">
+        <ListPreference
+            android:key="language_preference"
+            android:title="Seleccionar Idioma"
+            android:defaultValue="en"
+            android:entries="@array/idiomas"
+            android:entryValues="@array/language_codes"
+            android:summary="%s"
+            android:dialogTitle="Selecciona un idioma" />
+    </PreferenceCategory>
+
+<PreferenceCategory android:title="Otros Ajustes">
+    <Preference
+        app:key="buildVersion"
+        app:summary="0.3.29"
+        app:title="@string/txtVersion"/>
+</PreferenceCategory>
+
+</PreferenceScreen>

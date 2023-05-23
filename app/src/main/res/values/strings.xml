@@ -14,8 +14,6 @@
     <string name="introNombre">Name</string>
     <string name="introEmail">Email</string>
     <string name="introPass">Password</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="txtImgBoton">Button</string>
     <string name="txtPass">Minimum of 8 characters</string>
     <string name="Idioma1">English</string>
@@ -47,5 +45,7 @@
     <string name="txtEmail">Email: </string>
     <string name="txtErrorNombre">A name has not been entered</string>
     <string name="txtFecha">Last time played:</string>
-    <string name="txtPuntuacionTotal">Total Score: 0 points</string>
+    <string name="txtPuntuacionTotal">Total Score:</string>
+    <string name="txtVersion">Application Version</string>
+    <string name="puntos">points</string>
 </resources>
