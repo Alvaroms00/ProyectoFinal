@@ -12,14 +12,13 @@
         android:id="@+id/btnContinuarInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
         android:text="@string/btnContinuar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSaludo" />
+        app:layout_constraintTop_toBottomOf="@+id/imgBienvenida" />
 
     <TextView
         android:id="@+id/txtSaludo"
@@ -28,9 +27,19 @@
         android:text="@string/txtInicio"
         android:textAlignment="center"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnContinuarInicio"
+        app:layout_constraintBottom_toTopOf="@+id/imgBienvenida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBienvenida"
+        android:layout_width="210dp"
+        android:layout_height="235dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toTopOf="@+id/btnContinuarInicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSaludo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
