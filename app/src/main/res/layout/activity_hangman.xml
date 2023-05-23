@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:contentDescription="soporte"
         app:srcCompat="@drawable/ahorcado_0" />
 
     <TextView
