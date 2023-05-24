@@ -47,6 +47,7 @@
     <string name="txtFecha">Última vez jugado:</string>
     <string name="txtPuntuacionTotal">Puntuación total:</string>
     <string name="txtVersion">Version de la aplicación</string>
+    <string name="puntos">puntos</string>
 
 
 </resources>
