@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.alvaro.proyectofinal.BaseDeDatos.Usuarios
-import com.google.firebase.database.core.Context
 
-class MyAdapterAhorcado(private val context: Context, private val dataList: List<Usuarios>):RecyclerView.Adapter<MyViewHolder>() {
+class MyAdapterAhorcado(private val dataList: List<Usuarios>):RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
         return MyViewHolder(view)
