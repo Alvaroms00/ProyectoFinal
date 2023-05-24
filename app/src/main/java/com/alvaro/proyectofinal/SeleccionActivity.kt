@@ -1,15 +1,13 @@
 package com.alvaro.proyectofinal
 
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.alvaro.proyectofinal.databinding.ActivitySeleccionBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+
 
 
 class SeleccionActivity : AppCompatActivity() {
@@ -26,7 +24,7 @@ class SeleccionActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.juegosFragment,
-                R.id.rankingFragment,
+                R.id.rankingActivity,
                 R.id.cerrarsesionFragment,
                 R.id.ajustesFragment
             ),
@@ -36,13 +34,13 @@ class SeleccionActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.navView, navController)
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
 
-        val inicio = FirebaseAuth.getInstance().currentUser
+        /*val inicio = FirebaseAuth.getInstance().currentUser
 
         if (inicio == null){
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
-        }
+        }*/
     }
 
 }

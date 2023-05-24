@@ -7,7 +7,7 @@
         android:title="@string/menuPrincipal"/>
 
     <item
-        android:id="@+id/rankingFragment"
+        android:id="@+id/rankingActivity"
         android:icon="@drawable/podium"
         android:title="@string/puntuacion"/>
 

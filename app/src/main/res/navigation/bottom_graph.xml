@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_graph"
-    app:startDestination="@id/hangmanPuntuacionFragment">
+    app:startDestination="@id/puntuacionAhorcado">
 
     <fragment
-        android:id="@+id/hangmanPuntuacionFragment"
+        android:id="@+id/puntuacionAhorcado"
         android:name="com.alvaro.proyectofinal.HangmanPuntuacionFragment"
-        android:label="fragment_hangman_puntuacion"
+        android:label="@string/ahorcado"
         tools:layout="@layout/fragment_hangman_puntuacion" />
 
     <fragment
-        android:id="@+id/tictactoePuntuacionFragment"
+        android:id="@+id/puntuacionTicTacToe"
         android:name="com.alvaro.proyectofinal.TictactoePuntuacionFragment"
-        android:label="fragment_tictactoe_puntuacion"
+        android:label="@string/txtTicTacToe"
         tools:layout="@layout/fragment_tictactoe_puntuacion" />
 </navigation>

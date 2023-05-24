@@ -17,13 +17,13 @@
         android:label="@string/cuenta"
         tools:layout="@layout/fragment_cerrarsesion" />
     <fragment
-        android:id="@+id/rankingFragment"
-        android:name="com.alvaro.proyectofinal.Menus.RankingFragment"
-        android:label="@string/puntuacion"
-        tools:layout="@layout/fragment_ranking" />
-    <fragment
         android:id="@+id/ajustesFragment"
         android:name="com.alvaro.proyectofinal.Menus.AjustesFragment"
         android:label="@string/ajustes"
         tools:layout="@layout/fragment_ajustes" />
+    <activity
+        android:id="@+id/rankingActivity"
+        android:name="com.alvaro.proyectofinal.Menus.RankingActivity"
+        android:label="@string/puntuacion"
+        tools:layout="@layout/activity_ranking" />
 </navigation>
