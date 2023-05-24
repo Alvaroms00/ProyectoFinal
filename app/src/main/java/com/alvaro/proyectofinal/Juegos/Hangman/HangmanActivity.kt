@@ -1,7 +1,9 @@
 package com.alvaro.proyectofinal.Juegos.Hangman
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -10,12 +12,22 @@ import android.widget.EditText
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.ActivityHangmanBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.MutableData
+import com.google.firebase.database.Transaction
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.getValue
 
 class HangmanActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityHangmanBinding
+    private lateinit var database: DatabaseReference
 
     private lateinit var palabraSecreta: String
     private lateinit var palabrasArray: Array<String>
@@ -23,6 +35,7 @@ class HangmanActivity : AppCompatActivity(), View.OnClickListener {
     private var letrasAdivinadas = ArrayList<Char>()
     private var intentosRestantes = 0
     private val letrasPresionadas = mutableListOf<String>()
+
 
     private lateinit var txtPalabra: TextView
     private lateinit var imgAhorcado: ImageView
@@ -35,6 +48,8 @@ class HangmanActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityHangmanBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         txtPalabra = binding.txtAdivinar
         imgAhorcado = binding.imgJuegoAhorcado
@@ -58,7 +73,6 @@ class HangmanActivity : AppCompatActivity(), View.OnClickListener {
             }
 
         actualizarPalabra()
-
     }
 
     override fun onClick(v: View?) {
@@ -86,10 +100,10 @@ class HangmanActivity : AppCompatActivity(), View.OnClickListener {
                 actualizarImagenAhorcado()
             }
             actualizarPalabra()
-            if (intentosRestantes == 6){
+            if (intentosRestantes == 6) {
                 desactivarBotones()
                 dialogoDerrota()
-            }else if(palabraAdivinada()) {
+            } else if (palabraAdivinada()) {
                 desactivarBotones()
                 dialogoVictoria()
             }
@@ -167,21 +181,62 @@ class HangmanActivity : AppCompatActivity(), View.OnClickListener {
         txtLetrasPresionadas.text = "${getString(R.string.txtLetraFallada)}$letrasPresionadasText"
     }
 
-    private fun dialogoVictoria(){
+    private fun actualizarPuntuacion() {
+        database =
+            FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app")
+                .getReference("Usuarios")
+        val preferencias = getSharedPreferences("usuario", Context.MODE_PRIVATE)
+        val usuario = preferencias.getString("usuario", "")
+
+        if (usuario != null) {
+            val referenciaUsuario = database.child(usuario)
+
+            referenciaUsuario.runTransaction(object : Transaction.Handler {
+                override fun doTransaction(currentData: MutableData): Transaction.Result {
+                    val puntuacionAhorcado = currentData.child("puntuacionAhorcado").getValue(Long::class.java)
+                    val puntajeActual = puntuacionAhorcado?.toInt() ?: 0
+                    val puntuacion = 100
+                    val nuevaPuntuacion = puntajeActual + puntuacion
+
+                    currentData.child("puntuacionAhorcado").value = nuevaPuntuacion
+
+                    return Transaction.success(currentData)
+                }
+
+                override fun onComplete(
+                    error: DatabaseError?,
+                    committed: Boolean,
+                    currentData: DataSnapshot?
+                ) {
+                    if (error != null) {
+                        Log.w("Error", "error")
+                    } else {
+                        Log.i("Correcto", "Correcto")
+                    }
+                }
+            })
+        }
+    }
+
+    private fun dialogoVictoria() {
         val builder = AlertDialog.Builder(this)
         builder.setIcon(R.drawable.victoria)
         builder.setTitle(getString(R.string.victoria))
         builder.setMessage("¡Felicidades!\nHas adivinado la palabra.\n¿Deseas jugar de nuevo?")
         builder.setPositiveButton(getString(R.string.txtJugarDeNuevo)) { _, _ ->
             reiniciarJuego()
+            //val puntuacion = obtenerPuntuacion()
+            actualizarPuntuacion()
         }
         builder.setNegativeButton(getString(R.string.salir)) { _, _ ->
             finish()
+            //val puntuacion = obtenerPuntuacion()
+            actualizarPuntuacion()
         }
         builder.show()
     }
 
-    private fun dialogoDerrota(){
+    private fun dialogoDerrota() {
         val builder = AlertDialog.Builder(this)
         builder.setIcon(R.drawable.derrota)
         builder.setTitle(getString(R.string.derrota))

@@ -3,14 +3,18 @@ package com.alvaro.proyectofinal
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alvaro.proyectofinal.Juegos.Hangman.HangmanActivity
 import com.alvaro.proyectofinal.databinding.FragmentHangmanBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -32,17 +36,24 @@ class HangmanFragment : Fragment() {
         val preferencias = activity?.getSharedPreferences("usuario",Context.MODE_PRIVATE)
         val fecha = preferencias?.getString("fechaAhorcado", "")
         val nombre = preferencias?.getString("usuario", "")
-        var puntuacion: String
 
+        var puntuacion: String
         database = FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios")
 
         if (nombre != null) {
-            database.child(nombre).get().addOnSuccessListener {
-                if (it.exists()){
-                    puntuacion = it.child("puntuacionAhorcado").value.toString()
-                    binding.txtPuntuacionJuego.text = "${getString(R.string.txtPuntuacionTotal)} $puntuacion ${getString(R.string.puntos)}"
+            database.child(nombre).addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        puntuacion = snapshot.child("puntuacionAhorcado").value.toString()
+                        binding.txtPuntuacionJuego.text = "${getString(R.string.txtPuntuacionTotal)} $puntuacion ${getString(R.string.puntos)}"
+                    }
                 }
-            }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
         }
 
         binding.btnAhorcado.setOnClickListener {

@@ -1,7 +1,9 @@
 package com.alvaro.proyectofinal.Juegos.TresEnRaya
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -10,9 +12,16 @@ import com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos.EstadoTablero
 import com.alvaro.proyectofinal.Juegos.TresEnRaya.Modelos.Tablero
 import com.alvaro.proyectofinal.R
 import com.alvaro.proyectofinal.databinding.ActivityTictactoeBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.MutableData
+import com.google.firebase.database.Transaction
 
 class TictactoeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTictactoeBinding
+    private lateinit var database: DatabaseReference
     private val viewModel: ModelViewModel by viewModels()
 
     var puntuacionJuego = 0
@@ -58,7 +67,7 @@ class TictactoeActivity : AppCompatActivity() {
 
     private fun estadoJuego(estadoTablero: EstadoTablero) = when (estadoTablero) {
         EstadoTablero.CRUCES_GANAN -> {
-            puntuacionJuego = 500
+            actualizarPuntuacion()
             val builder = AlertDialog.Builder(this)
             builder.setIcon(R.drawable.victoria)
             builder.setTitle(getString(R.string.victoria))
@@ -104,8 +113,41 @@ class TictactoeActivity : AppCompatActivity() {
 
         EstadoTablero.INCOMPLETO -> {}
     }
-fun totalPuntuacion(){
+    private fun actualizarPuntuacion() {
+        database =
+            FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app")
+                .getReference("Usuarios")
+        val preferencias = getSharedPreferences("usuario", Context.MODE_PRIVATE)
+        val usuario = preferencias.getString("usuario", "")
 
-}
+        if (usuario != null) {
+            val referenciaUsuario = database.child(usuario)
+
+            referenciaUsuario.runTransaction(object : Transaction.Handler {
+                override fun doTransaction(currentData: MutableData): Transaction.Result {
+                    val puntuacionAhorcado = currentData.child("puntuacionTresEnRaya").getValue(Long::class.java)
+                    val puntajeActual = puntuacionAhorcado?.toInt() ?: 0
+                    val puntuacion = 100
+                    val nuevaPuntuacion = puntajeActual + puntuacion
+
+                    currentData.child("puntuacionTresEnRaya").value = nuevaPuntuacion
+
+                    return Transaction.success(currentData)
+                }
+
+                override fun onComplete(
+                    error: DatabaseError?,
+                    committed: Boolean,
+                    currentData: DataSnapshot?
+                ) {
+                    if (error != null) {
+                        Log.w("Error", "error")
+                    } else {
+                        Log.i("Correcto", "Correcto")
+                    }
+                }
+            })
+        }
+    }
 
 }
