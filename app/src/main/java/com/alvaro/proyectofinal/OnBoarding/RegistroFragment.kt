@@ -42,9 +42,11 @@ class RegistroFragment : Fragment() {
         passFocus()
         nombreFocus()
         binding.btnRegistro.setOnClickListener {
+            //Comprobamos si los campos de texto estan vacios
             if (binding.introEmail.text.toString().isNotEmpty() && binding.introPass.text.toString()
                     .isNotEmpty()
             ) {
+                //Obtenemos la instancia de nuestra base de datos e introducimos la funcion que nos ofrece firebase para crear un usuario
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                     binding.introEmail.text.toString(),
                     binding.introPass.text.toString()
@@ -93,7 +95,7 @@ class RegistroFragment : Fragment() {
         }
         startActivity(intent)
     }
-
+    //Funcion para obtener el foco cuando se esta dentro del campo de nombre
     private fun nombreFocus() {
         binding.introNombre.setOnFocusChangeListener { _, focus ->
             if (!focus) {
@@ -101,7 +103,7 @@ class RegistroFragment : Fragment() {
             }
         }
     }
-
+    //Funcion para comprobar el nombre
     private fun nombreValido(): String? {
         val textoNombre = binding.introNombre.text.toString()
         if (textoNombre.length < 1) {
@@ -110,6 +112,7 @@ class RegistroFragment : Fragment() {
         return null
     }
 
+    //Funcion para obtener el foco cuando se esta dentro del campo de email
     private fun emailFocus() {
         binding.introEmail.setOnFocusChangeListener { _, focus ->
             if (!focus) {
@@ -118,6 +121,7 @@ class RegistroFragment : Fragment() {
         }
     }
 
+    //Funcion para validar si el texto introducido es un email comprobando el simbolo arroba (@)
     private fun emailValido(): String? {
         val textoEmail = binding.introEmail.text.toString()
         if (!Patterns.EMAIL_ADDRESS.matcher(textoEmail).matches()) {
@@ -125,7 +129,7 @@ class RegistroFragment : Fragment() {
         }
         return null
     }
-
+    //Funcion para obtener el foco cuando se esta dentro del campo contraseña
     private fun passFocus() {
         binding.introPass.setOnFocusChangeListener { _, focus ->
             if (!focus) {
@@ -134,6 +138,7 @@ class RegistroFragment : Fragment() {
         }
     }
 
+    //Funcion para comprobar que se ha introducido una contraseña correcta
     private fun passValida(): String? {
         val textoPass = binding.introPass.text.toString()
         if (textoPass.length < 8) {
@@ -142,6 +147,7 @@ class RegistroFragment : Fragment() {
         return null
     }
 
+    //Obtenemos una instancia para obtener los valores de los campos y guardarlos dentro de la base de datos
     private fun guardarUsuarios() {
         val nombre = binding.introNombre.text.toString()
         val email = binding.introEmail.text.toString()

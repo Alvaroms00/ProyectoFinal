@@ -1,7 +1,7 @@
 package com.alvaro.proyectofinal.Menus
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -24,10 +24,12 @@ class RankingActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
 
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.puntuacionAhorcado,
-            R.id.puntuacionTicTacToe
-        ))
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.puntuacionAhorcado,
+                R.id.puntuacionTicTacToe
+            )
+        )
 
         NavigationUI.setupWithNavController(binding.bottomNavView, navController)
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)

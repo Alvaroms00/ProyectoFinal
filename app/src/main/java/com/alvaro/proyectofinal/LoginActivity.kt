@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.alvaro.proyectofinal.Menus.ProviderType
 import com.alvaro.proyectofinal.databinding.ActivityLoginBinding
@@ -20,22 +19,33 @@ class LoginActivity : AppCompatActivity() {
         emailFocus()
         passFocus()
 
+        //Instanciamos la accion del boton Login
         binding.btnLogin.setOnClickListener {
-            if (binding.introLoginEmail.text.toString().isNotEmpty() && binding.introLoginPass.text.toString().isNotEmpty()){
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(binding.introLoginEmail.text.toString(), binding.introLoginPass.text.toString())
+            //Comprobamos si los campos no estan vacios
+            if (binding.introLoginEmail.text.toString()
+                    .isNotEmpty() && binding.introLoginPass.text.toString().isNotEmpty()
+            ) {
+                //Obtenemos la instancia de nuestra base de datos e introducimos la funcion que nos ofrece firebase para iniciar sesion con un usuario
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    binding.introLoginEmail.text.toString(),
+                    binding.introLoginPass.text.toString()
+                )
                     .addOnCompleteListener {
-                        if (it.isSuccessful){
+                        if (it.isSuccessful) {
                             mostrarMenu(it.result?.user?.email ?: "", ProviderType.BASIC)
-                            Toast.makeText(this,  getString(R.string.ToastInicioSesion),
-                                Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this, getString(R.string.ToastInicioSesion),
+                                Toast.LENGTH_SHORT
+                            ).show()
                             finish()
-                        } else{
+                        } else {
                             alerta()
                         }
                     }
             }
         }
     }
+
     private fun alerta() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
@@ -52,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
+
     private fun emailFocus() {
         binding.introLoginEmail.setOnFocusChangeListener { _, focus ->
             if (!focus) {
@@ -67,6 +78,7 @@ class LoginActivity : AppCompatActivity() {
         }
         return null
     }
+
     private fun passFocus() {
         binding.introLoginPass.setOnFocusChangeListener { _, focus ->
             if (!focus) {

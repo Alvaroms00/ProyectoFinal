@@ -18,6 +18,7 @@ class Tablero(private val tablero: MutableMap<Celda, EstadoCelda> = mutableMapOf
         tablero.clear()
     }
 
+    //Funcion para leer el movimiento ganador de cada uno de los turnos
     fun buscarMovimientoGanador(estado: EstadoCelda): Celda? = when {
         Celda.TOP_LEFT victoria estado -> Celda.TOP_LEFT
         Celda.TOP_CENTER victoria estado -> Celda.TOP_CENTER
@@ -50,6 +51,7 @@ class Tablero(private val tablero: MutableMap<Celda, EstadoCelda> = mutableMapOf
             else -> EstadoTablero.EMPATE
         }
 
+    //Funcion donde comprobamos las combinaciones para mostrar la victoria
     private fun estadoVictoria(estado: EstadoCelda): Boolean {
         fun estadoPrueba(vararg celdas: Celda): Boolean = celdas.all { celda ->
             tablero[celda] == estado

@@ -3,7 +3,6 @@ package com.alvaro.proyectofinal
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,21 +32,25 @@ class TictactoeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val preferencias = activity?.getSharedPreferences("usuario",Context.MODE_PRIVATE)
+        val preferencias = activity?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
         val fecha = preferencias?.getString("fechaTresEnRaya", "")
         val nombre = preferencias?.getString("usuario", "")
 
         var puntuacion: String
-        database = FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios")
-
+        database =
+            FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app")
+                .getReference("Usuarios")
+//Comprobamos si la base de datos contiene algun dato y lo mostramos en pantalla
         if (nombre != null) {
             database.child(nombre).get().addOnSuccessListener {
-                if (it.exists()){
+                if (it.exists()) {
                     puntuacion = it.child("puntuacionTresEnRaya").value.toString()
-                    binding.txtPuntuacionTresEnRaya.text = "${getString(R.string.txtPuntuacionTotal)} $puntuacion ${getString(R.string.puntos)}"
+                    binding.txtPuntuacionTresEnRaya.text =
+                        "${getString(R.string.txtPuntuacionTotal)} $puntuacion ${getString(R.string.puntos)}"
                 }
             }
         }
+        //Accion del boton para entrar en nuestro juego
         binding.btnTresEnRaya.setOnClickListener {
             val intent = Intent(activity, TictactoeActivity::class.java)
             startActivity(intent)

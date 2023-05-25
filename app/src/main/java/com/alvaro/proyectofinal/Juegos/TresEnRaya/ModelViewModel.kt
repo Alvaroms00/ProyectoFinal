@@ -11,10 +11,12 @@ class ModelViewModel : ViewModel() {
     private var tablero = Tablero()
     val vistaTablero = MutableLiveData(tablero)
 
+    //Funcion para actualizar el tablero
     private fun actualizarTablero() {
         vistaTablero.value = tablero
     }
 
+    //Funcion para la accion al clicar la celda
     fun celdaClicada(celda: Celda) {
         tablero.estadoCelda(celda, EstadoCelda.Cruz)
         actualizarTablero()
@@ -23,12 +25,14 @@ class ModelViewModel : ViewModel() {
         }
     }
 
+    //Funcion para reiniciar el juego
     fun reiniciar() {
         tablero.reiniciarTablero()
         actualizarTablero()
     }
 
 
+    //Funcion donde declaramos el turno de la maquina y las acciones que debe realizar
     private fun turnoMaquina() {
         val maquinaPuedeGanar = tablero.buscarMovimientoGanador(EstadoCelda.Circulo)
         val jugadorPuedeGanar = tablero.buscarMovimientoGanador(EstadoCelda.Cruz)

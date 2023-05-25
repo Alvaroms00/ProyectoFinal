@@ -3,7 +3,6 @@ package com.alvaro.proyectofinal
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,19 +32,22 @@ class HangmanFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val preferencias = activity?.getSharedPreferences("usuario",Context.MODE_PRIVATE)
+        val preferencias = activity?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
         val fecha = preferencias?.getString("fechaAhorcado", "")
         val nombre = preferencias?.getString("usuario", "")
 
         var puntuacion: String
-        database = FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios")
-
+        database =
+            FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app")
+                .getReference("Usuarios")
+        //Comprobamos si la base de datos contiene algun dato y lo mostramos en pantalla
         if (nombre != null) {
-            database.child(nombre).addListenerForSingleValueEvent(object : ValueEventListener{
+            database.child(nombre).addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()){
+                    if (snapshot.exists()) {
                         puntuacion = snapshot.child("puntuacionAhorcado").value.toString()
-                        binding.txtPuntuacionJuego.text = "${getString(R.string.txtPuntuacionTotal)} $puntuacion ${getString(R.string.puntos)}"
+                        binding.txtPuntuacionJuego.text =
+                            "${getString(R.string.txtPuntuacionTotal)} $puntuacion ${getString(R.string.puntos)}"
                     }
                 }
 
@@ -55,7 +57,7 @@ class HangmanFragment : Fragment() {
 
             })
         }
-
+        //Accion del boton para entrar en nuestro juego
         binding.btnAhorcado.setOnClickListener {
             val intent = Intent(activity, HangmanActivity::class.java)
             startActivity(intent)

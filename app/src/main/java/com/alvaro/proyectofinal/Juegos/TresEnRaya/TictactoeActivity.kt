@@ -24,7 +24,6 @@ class TictactoeActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private val viewModel: ModelViewModel by viewModels()
 
-    var puntuacionJuego = 0
     override fun onCreate(savedIntanceState: Bundle?) {
         super.onCreate(savedIntanceState)
         binding = ActivityTictactoeBinding.inflate(layoutInflater)
@@ -40,6 +39,7 @@ class TictactoeActivity : AppCompatActivity() {
 
     }
 
+    //Funcion para introducir el evento de los botones
     private fun botones() = with(binding) {
         celda1.setOnClickListener { viewModel.celdaClicada(Celda.TOP_LEFT) }
         celda2.setOnClickListener { viewModel.celdaClicada(Celda.TOP_CENTER) }
@@ -52,6 +52,7 @@ class TictactoeActivity : AppCompatActivity() {
         celda9.setOnClickListener { viewModel.celdaClicada(Celda.BOT_RIGHT) }
     }
 
+    //Funcion para actualizar la celda y mostrar la imagen correspondiente
     private fun actualizarCeldas(tablero: Tablero) {
         binding.celda1.setImageResource(tablero.estado(Celda.TOP_LEFT).res)
         binding.celda2.setImageResource(tablero.estado(Celda.TOP_CENTER).res)
@@ -65,6 +66,7 @@ class TictactoeActivity : AppCompatActivity() {
 
     }
 
+    //Funcion para leer el estado del juego y realizar las acciones necesarias en los distintos casos
     private fun estadoJuego(estadoTablero: EstadoTablero) = when (estadoTablero) {
         EstadoTablero.CRUCES_GANAN -> {
             actualizarPuntuacion()
@@ -113,6 +115,7 @@ class TictactoeActivity : AppCompatActivity() {
 
         EstadoTablero.INCOMPLETO -> {}
     }
+    //Funcion para guardar la puntuacion que hemos obtenido tras ganar la partida
     private fun actualizarPuntuacion() {
         database =
             FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app")
@@ -125,7 +128,8 @@ class TictactoeActivity : AppCompatActivity() {
 
             referenciaUsuario.runTransaction(object : Transaction.Handler {
                 override fun doTransaction(currentData: MutableData): Transaction.Result {
-                    val puntuacionAhorcado = currentData.child("puntuacionTresEnRaya").getValue(Long::class.java)
+                    val puntuacionAhorcado =
+                        currentData.child("puntuacionTresEnRaya").getValue(Long::class.java)
                     val puntajeActual = puntuacionAhorcado?.toInt() ?: 0
                     val puntuacion = 100
                     val nuevaPuntuacion = puntajeActual + puntuacion
