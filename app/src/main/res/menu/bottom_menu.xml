@@ -8,5 +8,5 @@
     <item
         android:id="@+id/puntuacionTicTacToe"
         android:icon="@drawable/tictactoe"
-        android:title="@string/txtTicTacToe"/>
+        android:title="@string/txtTicTacToe" />
 </menu>

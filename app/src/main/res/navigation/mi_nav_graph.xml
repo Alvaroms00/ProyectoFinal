@@ -8,40 +8,40 @@
     <fragment
         android:id="@+id/inicioFragment"
         android:name="com.alvaro.proyectofinal.OnBoarding.InicioFragment"
-        tools:layout="@layout/fragment_inicio" >
+        tools:layout="@layout/fragment_inicio">
         <action
             android:id="@+id/action_inicioFragment_to_presentacionFragment"
             app:destination="@id/presentacionFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/presentacionFragment"
         android:name="com.alvaro.proyectofinal.OnBoarding.PresentacionFragment"
-        tools:layout="@layout/fragment_presentacion" >
+        tools:layout="@layout/fragment_presentacion">
         <action
             android:id="@+id/action_presentacionFragment_to_puntuacionFragment"
             app:destination="@id/puntuacionFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/puntuacionFragment"
         android:name="com.alvaro.proyectofinal.OnBoarding.PuntuacionFragment"
-        tools:layout="@layout/fragment_puntuacion" >
+        tools:layout="@layout/fragment_puntuacion">
         <action
             android:id="@+id/action_puntuacionFragment_to_registroFragment"
             app:destination="@id/registroFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/registroFragment"

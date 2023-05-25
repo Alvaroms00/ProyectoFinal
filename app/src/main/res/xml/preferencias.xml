@@ -16,7 +16,7 @@
 <PreferenceCategory android:title="Otros Ajustes">
     <Preference
         app:key="buildVersion"
-        app:summary="0.3.29"
+        app:summary="0.5.35"
         app:title="@string/txtVersion"/>
 </PreferenceCategory>
 

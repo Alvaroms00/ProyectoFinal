@@ -4,23 +4,23 @@
     <item
         android:id="@+id/juegosFragment"
         android:icon="@drawable/baseline_home_24"
-        android:title="@string/menuPrincipal"/>
+        android:title="@string/menuPrincipal" />
 
     <item
         android:id="@+id/rankingActivity"
         android:icon="@drawable/podium"
-        android:title="@string/puntuacion"/>
+        android:title="@string/puntuacion" />
 
 
     <item
         android:id="@+id/cerrarsesionFragment"
         android:icon="@drawable/baseline_account_circle_24"
-        android:title="@string/cuenta"/>
+        android:title="@string/cuenta" />
 
     <item
         android:id="@+id/ajustesFragment"
         android:icon="@drawable/baseline_settings_24"
-        android:title="@string/ajustes"/>
+        android:title="@string/ajustes" />
 
 
 </menu>

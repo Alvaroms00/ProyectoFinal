@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alvaro.proyectofinal.BaseDeDatos.Usuarios
 import com.alvaro.proyectofinal.R
 
-class MyAdapterTicTacToe(private val dataList: List<Usuarios>): RecyclerView.Adapter<MyViewHolderTicTacToe>() {
+class MyAdapterTicTacToe(private val dataList: List<Usuarios>) :
+    RecyclerView.Adapter<MyViewHolderTicTacToe>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolderTicTacToe {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
+        val view: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
         return MyViewHolderTicTacToe(view)
     }
 
@@ -25,7 +27,7 @@ class MyAdapterTicTacToe(private val dataList: List<Usuarios>): RecyclerView.Ada
     }
 }
 
-class MyViewHolderTicTacToe(itemView: View): RecyclerView.ViewHolder(itemView){
+class MyViewHolderTicTacToe(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var posicion: TextView
     var usuario: TextView
     var puntuacion: TextView

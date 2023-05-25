@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alvaro.proyectofinal.BaseDeDatos.Usuarios
 import com.alvaro.proyectofinal.R
 
-class MyAdapterAhorcado(private val dataList: List<Usuarios>):RecyclerView.Adapter<MyViewHolderAhorcado>() {
+class MyAdapterAhorcado(private val dataList: List<Usuarios>) :
+    RecyclerView.Adapter<MyViewHolderAhorcado>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolderAhorcado {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
+        val view: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
         return MyViewHolderAhorcado(view)
     }
 
@@ -25,7 +27,7 @@ class MyAdapterAhorcado(private val dataList: List<Usuarios>):RecyclerView.Adapt
     }
 }
 
-class MyViewHolderAhorcado(itemView: View): RecyclerView.ViewHolder(itemView){
+class MyViewHolderAhorcado(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var posicion: TextView
     var usuario: TextView
     var puntuacion: TextView
