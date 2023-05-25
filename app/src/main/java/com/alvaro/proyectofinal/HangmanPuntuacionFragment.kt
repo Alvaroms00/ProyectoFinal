@@ -6,49 +6,63 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.alvaro.proyectofinal.Adapters.MyAdapterAhorcado
 import com.alvaro.proyectofinal.BaseDeDatos.Usuarios
 import com.alvaro.proyectofinal.databinding.FragmentHangmanPuntuacionBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class HangmanPuntuacionFragment : Fragment() {
-    private var columnCount = 2
+    private lateinit var binding: FragmentHangmanPuntuacionBinding
     private lateinit var dataList: ArrayList<Usuarios>
+    private lateinit var adapter: MyAdapterAhorcado
+    var database: DatabaseReference? = null
+    var eventListener: ValueEventListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_hangman_puntuacion,container,false)
-        if (view is RecyclerView){
-            with(view){
-                layoutManager = when{
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else-> GridLayoutManager(context, columnCount)
-                }
-                adapter = MyAdapterAhorcado(dataList)
-            }
-        }
-        return view
+        binding = FragmentHangmanPuntuacionBinding.inflate(inflater, container, false).also { binding = it }
+        return binding.root
     }
 
-    companion object{
-        const val ARG_COLUMN_COUNT = "column-count"
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            HangmanPuntuacionFragment().apply{
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val gridLayoutManager = GridLayoutManager(activity, 1)
+        binding.recyclerView.layoutManager = gridLayoutManager
+
+        dataList = ArrayList()
+        adapter = MyAdapterAhorcado(dataList)
+        binding.recyclerView.adapter = adapter
+        database = FirebaseDatabase.getInstance("https://proyectofinal-fdf7f-default-rtdb.europe-west1.firebasedatabase.app").getReference("Usuarios")
+
+        eventListener = database!!.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (itemSnapshot in snapshot.children){
+                    val dataClass = itemSnapshot.getValue(Usuarios::class.java)
+                    if (dataClass != null){
+                        dataList.add(dataClass)
+                    }
                 }
+                adapter.notifyDataSetChanged()
             }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
+
 
 }
